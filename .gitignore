@@ -1,0 +1,40 @@
+# Build and Release Folders
+bin-debug/
+bin-release/
+[Oo]bj/
+[Bb]in/
+
+# Other files and folders
+.settings/
+
+# Executables
+*.swf
+*.air
+*.ipa
+*.apk
+**/__pycache__/
+
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.
+
+chipstack-server/
+playground/
+outdir**/
+resdir/
+venv*/
+.venv*/
+chipstack-client/
+chipstack-server-python/
+
+.DS_Store
+
+docker-entrypoint-initdb.d/**
+
+build-202**
+back**
+
+tmp/**
+.env
+
+

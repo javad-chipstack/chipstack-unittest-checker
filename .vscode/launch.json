@@ -33,7 +33,7 @@
        "type": "debugpy"
     },    
     {
-      "name": "REGRESS Python Debugger: Current File",
+      "name": "Python Debugger: Current File",
       "justMyCode": false,
       "request": "launch",
       "program": "${file}",
