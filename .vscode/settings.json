@@ -1,0 +1,9 @@
+{
+  "[verilog]": {
+    "editor.wordSeparators": "~!@#%^&*()-=+[{]}\\|;:\",.<>/?",
+    "editor.snippetSuggestions": "none"
+  },
+  "[systemverilog]": {
+    "editor.snippetSuggestions": "none"
+  }
+}

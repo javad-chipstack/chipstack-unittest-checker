@@ -1,0 +1,14 @@
+servers:
+  - name: "EDA-Dev"
+    url: "https://24.4.201.87"
+    endpoints:
+      - path: "/healthcheck"
+        method: "GET"
+      - path: "/compile-check-xcelium"
+        method: "POST"
+        files:
+          file_field: "ref_designs/cdc_fifo/cdc_fifo_no_param/cdc_f.sv"
+      - path: "/invoke-xcelium"
+        method: "POST"
+        files:
+          file_field: "ref_designs/cdc_fifo/cdc_fifo_no_param/cdc_f.sv"

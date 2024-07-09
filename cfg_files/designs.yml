@@ -1,0 +1,325 @@
+designs_root_dir: ./../
+designs:
+
+  pcie_controller_master:
+    top : chipstack-regress/ref_designs/pcie_controller_master/pcie_piso.sv
+    dependencies:
+      - chipstack-regress/ref_designs/pcie_controller_master/pcie_ltssm_sm.sv
+      - chipstack-regress/ref_designs/pcie_controller_master/pcie_packages.sv
+      - chipstack-regress/ref_designs/pcie_controller_master/lane_striping.sv
+
+  comparator:
+    top : chipstack-regress/ref_designs/comparator/comparator.sv
+
+  tt_ex:
+    top : playground/avispado/rtl/tt_ex.sv
+    dependencies:
+      - playground/avispado/rtl/briscv_defines.vh
+      - playground/avispado/rtl/tt_briscv_pkg.vh
+      - playground/avispado/rtl/tt_pipe_stage.sv
+      - playground/avispado/rtl/tt_ascii_instrn_decode.sv
+
+  meta:
+    top : chipstack-regress/ref_designs/other/meta/web1/web1_web.sv
+    dependencies:
+      - chipstack-regress/ref_designs/other/meta/web1/ftc_double_rank_synchronizer_async.sv
+      - chipstack-regress/ref_designs/other/meta/web1/regmodel0_regmodel_web1_interface.sv
+
+  cdc_fifo: 
+    top : playground/cdc_fifo/rtl/cdc_fifo.sv
+
+  credit_fifo:
+    top : chipstack-regress/ref_designs/credit_fifo/credit_fifo.v
+
+  flow_reg: 
+    top : playground/flow_reg/flow_reg.sv 
+
+  tri_mode_ethernet_mac_10_100_1000_master:
+    top : chipstack-regress/ref_designs/tri_mode_ethernet_mac_10_100_1000_master/ethernet_mac_top.sv
+    dependencies:
+      - chipstack-regress/ref_designs/tri_mode_ethernet_mac_10_100_1000_master/wifii_mac_package.sv
+      - chipstack-regress/ref_designs/tri_mode_ethernet_mac_10_100_1000_master/mdio_controller.sv
+      - chipstack-regress/ref_designs/tri_mode_ethernet_mac_10_100_1000_master/mdio_clause45_controller.sv
+      - chipstack-regress/ref_designs/tri_mode_ethernet_mac_10_100_1000_master/ethernet_crc32.sv
+      - chipstack-regress/ref_designs/tri_mode_ethernet_mac_10_100_1000_master/ethernet_mac_encap.sv
+      - chipstack-regress/ref_designs/tri_mode_ethernet_mac_10_100_1000_master/ethernet_mac_decap.sv
+      - chipstack-regress/ref_designs/tri_mode_ethernet_mac_10_100_1000_master/axis_fifo.v
+      - chipstack-regress/ref_designs/tri_mode_ethernet_mac_10_100_1000_master/ethernet_mac_wrapper.sv
+
+  ahb3lite_apb_bridge:
+    top : chipstack-regress/ref_designs/ahb3lite_apb_bridge/ahb3lite_apb_bridge.sv
+    dependencies:
+      - chipstack-regress/ref_designs/ahb3lite_apb_bridge/ahb3lite_pkg.sv
+
+  axi_master_design:
+    top : chipstack-regress/ref_designs/axi_master_design/axi_master_design.sv
+
+  multibit_fifo_sync:
+    top : chipstack-regress/ref_designs/multibit_fifo_sync/multibit_fifo_sync.sv
+
+  nand_flash_controller:
+    top : chipstack-regress/ref_designs/nand_flash_controller/nand_flash_controller.sv
+
+  hmac:
+    top : chipstack-regress/ref_designs/hmac/hmac.sv
+    dependencies:
+      - chipstack-regress/ref_designs/hmac/prim_assert_standard_macros.svh
+      - chipstack-regress/ref_designs/hmac/prim_assert_sec_cm.svh
+      - chipstack-regress/ref_designs/hmac/prim_flop_macros.sv
+      - chipstack-regress/ref_designs/hmac/prim_assert.sv
+      - chipstack-regress/ref_designs/hmac/prim_alert_pkg.sv
+      - chipstack-regress/ref_designs/hmac/prim_mubi_pkg.sv
+      - chipstack-regress/ref_designs/hmac/prim_secded_pkg.sv
+      - chipstack-regress/ref_designs/hmac/top_pkg.sv
+      - chipstack-regress/ref_designs/hmac/tlul_pkg.sv
+      - chipstack-regress/ref_designs/hmac/prim_subreg_pkg.sv
+      - chipstack-regress/ref_designs/hmac/prim_secded_inv_64_57_dec.sv
+      - chipstack-regress/ref_designs/hmac/prim_secded_inv_39_32_dec.sv
+      - chipstack-regress/ref_designs/hmac/tlul_data_integ_dec.sv
+      - chipstack-regress/ref_designs/hmac/tlul_cmd_intg_chk.sv
+      - chipstack-regress/ref_designs/hmac/prim_util_pkg.sv
+      - chipstack-regress/ref_designs/hmac/prim_generic_buf.sv
+      - chipstack-regress/ref_designs/hmac/prim_buf.sv
+      - chipstack-regress/ref_designs/hmac/prim_onehot_check.sv
+      - chipstack-regress/ref_designs/hmac/prim_reg_we_check.sv
+      - chipstack-regress/ref_designs/hmac/prim_secded_inv_64_57_enc.sv
+      - chipstack-regress/ref_designs/hmac/prim_secded_inv_39_32_enc.sv
+      - chipstack-regress/ref_designs/hmac/tlul_data_integ_enc.sv
+      - chipstack-regress/ref_designs/hmac/tlul_rsp_intg_gen.sv
+      - chipstack-regress/ref_designs/hmac/tlul_err.sv
+      - chipstack-regress/ref_designs/hmac/prim_subreg_arb.sv
+      - chipstack-regress/ref_designs/hmac/prim_subreg.sv
+      - chipstack-regress/ref_designs/hmac/prim_subreg_ext.sv
+      - chipstack-regress/ref_designs/hmac/prim_intr_hw.sv
+      - chipstack-regress/ref_designs/hmac/prim_generic_flop_2sync.sv
+      - chipstack-regress/ref_designs/hmac/prim_flop_2sync.sv
+      - chipstack-regress/ref_designs/hmac/prim_filter_ctr.sv
+      - chipstack-regress/ref_designs/hmac/prim_sec_anchor_buf.sv
+      - chipstack-regress/ref_designs/hmac/prim_diff_decode.sv
+      - chipstack-regress/ref_designs/hmac/prim_generic_flop.sv
+      - chipstack-regress/ref_designs/hmac/prim_flop.sv
+      - chipstack-regress/ref_designs/hmac/prim_sec_anchor_flop.sv
+      - chipstack-regress/ref_designs/hmac/prim_alert_sender.sv
+      - chipstack-regress/ref_designs/hmac/prim_fifo_sync.sv
+      - chipstack-regress/ref_designs/hmac/tlul_fifo_sync.sv
+      - chipstack-regress/ref_designs/hmac/tlul_sram_byte.sv
+      - chipstack-regress/ref_designs/hmac/tlul_adapter_sram.sv
+      - chipstack-regress/ref_designs/hmac/tlul_adapter_reg.sv
+      - chipstack-regress/ref_designs/hmac/tlul_socket_1n.sv
+      - chipstack-regress/ref_designs/hmac/prim_count_pkg.sv
+      - chipstack-regress/ref_designs/hmac/prim_count.sv
+      - chipstack-regress/ref_designs/hmac/prim_packer.sv
+      - chipstack-regress/ref_designs/hmac/hmac_pkg.sv
+      - chipstack-regress/ref_designs/hmac/sha2_pad.sv
+      - chipstack-regress/ref_designs/hmac/sha2.sv
+      - chipstack-regress/ref_designs/hmac/hmac_core.sv
+      - chipstack-regress/ref_designs/hmac/hmac_reg_pkg.sv
+      - chipstack-regress/ref_designs/hmac/hmac_reg_top.sv
+
+  gpio:
+    top : chipstack-regress/ref_designs/gpio/gpio.sv
+    dependencies:
+      - chipstack-regress/ref_designs/gpio/gpio_reg_pkg.sv
+      - chipstack-regress/ref_designs/gpio/prim_assert.sv
+      - chipstack-regress/ref_designs/gpio/prim_assert_sec_cm.svh
+      - chipstack-regress/ref_designs/gpio/prim_flop_macros.sv
+      - chipstack-regress/ref_designs/gpio/prim_alert_pkg.sv
+      - chipstack-regress/ref_designs/gpio/prim_assert_standard_macros.svh
+      - chipstack-regress/ref_designs/gpio/prim_mubi_pkg.sv
+      - chipstack-regress/ref_designs/gpio/prim_secded_pkg.sv
+      - chipstack-regress/ref_designs/gpio/top_pkg.sv
+      - chipstack-regress/ref_designs/gpio/tlul_pkg.sv
+      - chipstack-regress/ref_designs/gpio/prim_subreg_pkg.sv
+      - chipstack-regress/ref_designs/gpio/prim_secded_inv_64_57_dec.sv
+      - chipstack-regress/ref_designs/gpio/prim_secded_inv_39_32_dec.sv
+      - chipstack-regress/ref_designs/gpio/tlul_data_integ_dec.sv
+      - chipstack-regress/ref_designs/gpio/tlul_cmd_intg_chk.sv
+      - chipstack-regress/ref_designs/gpio/prim_util_pkg.sv
+      - chipstack-regress/ref_designs/gpio/prim_generic_buf.sv
+      - chipstack-regress/ref_designs/gpio/prim_buf.sv
+      - chipstack-regress/ref_designs/gpio/prim_onehot_check.sv
+      - chipstack-regress/ref_designs/gpio/prim_reg_we_check.sv
+      - chipstack-regress/ref_designs/gpio/prim_secded_inv_64_57_enc.sv
+      - chipstack-regress/ref_designs/gpio/prim_secded_inv_39_32_enc.sv
+      - chipstack-regress/ref_designs/gpio/tlul_data_integ_enc.sv
+      - chipstack-regress/ref_designs/gpio/tlul_rsp_intg_gen.sv
+      - chipstack-regress/ref_designs/gpio/tlul_err.sv
+      - chipstack-regress/ref_designs/gpio/tlul_adapter_reg.sv
+      - chipstack-regress/ref_designs/gpio/prim_subreg_arb.sv
+      - chipstack-regress/ref_designs/gpio/prim_subreg.sv
+      - chipstack-regress/ref_designs/gpio/prim_subreg_ext.sv
+      - chipstack-regress/ref_designs/gpio/gpio_reg_top.sv
+      - chipstack-regress/ref_designs/gpio/prim_intr_hw.sv
+      - chipstack-regress/ref_designs/gpio/prim_generic_flop_2sync.sv
+      - chipstack-regress/ref_designs/gpio/prim_flop_2sync.sv
+      - chipstack-regress/ref_designs/gpio/prim_filter_ctr.sv
+      - chipstack-regress/ref_designs/gpio/prim_sec_anchor_buf.sv
+      - chipstack-regress/ref_designs/gpio/prim_diff_decode.sv
+      - chipstack-regress/ref_designs/gpio/prim_generic_flop.sv
+      - chipstack-regress/ref_designs/gpio/prim_flop.sv
+      - chipstack-regress/ref_designs/gpio/prim_sec_anchor_flop.sv
+      - chipstack-regress/ref_designs/gpio/prim_alert_sender.sv
+
+  i2c:
+    top : chipstack-regress/ref_designs/i2c/i2c.sv
+    dependencies:
+      - chipstack-regress/ref_designs/i2c/i2c_pkg.sv
+      - chipstack-regress/ref_designs/i2c/i2c_fsm.sv
+      - chipstack-regress/ref_designs/i2c/prim_assert.sv
+      - chipstack-regress/ref_designs/i2c/prim_assert_sec_cm.svh
+      - chipstack-regress/ref_designs/i2c/prim_flop_macros.sv
+      - chipstack-regress/ref_designs/i2c/prim_alert_pkg.sv
+      - chipstack-regress/ref_designs/i2c/prim_assert_standard_macros.svh
+      - chipstack-regress/ref_designs/i2c/prim_mubi_pkg.sv
+      - chipstack-regress/ref_designs/i2c/prim_secded_pkg.sv
+      - chipstack-regress/ref_designs/i2c/top_pkg.sv
+      - chipstack-regress/ref_designs/i2c/tlul_pkg.sv
+      - chipstack-regress/ref_designs/i2c/prim_subreg_pkg.sv
+      - chipstack-regress/ref_designs/i2c/prim_secded_inv_64_57_dec.sv
+      - chipstack-regress/ref_designs/i2c/prim_secded_inv_39_32_dec.sv
+      - chipstack-regress/ref_designs/i2c/tlul_data_integ_dec.sv
+      - chipstack-regress/ref_designs/i2c/tlul_cmd_intg_chk.sv
+      - chipstack-regress/ref_designs/i2c/prim_util_pkg.sv
+      - chipstack-regress/ref_designs/i2c/prim_generic_buf.sv
+      - chipstack-regress/ref_designs/i2c/prim_buf.sv
+      - chipstack-regress/ref_designs/i2c/prim_onehot_check.sv
+      - chipstack-regress/ref_designs/i2c/prim_reg_we_check.sv
+      - chipstack-regress/ref_designs/i2c/prim_secded_inv_64_57_enc.sv
+      - chipstack-regress/ref_designs/i2c/prim_secded_inv_39_32_enc.sv
+      - chipstack-regress/ref_designs/i2c/tlul_data_integ_enc.sv
+      - chipstack-regress/ref_designs/i2c/tlul_rsp_intg_gen.sv
+      - chipstack-regress/ref_designs/i2c/tlul_err.sv
+      - chipstack-regress/ref_designs/i2c/tlul_adapter_reg.sv
+      - chipstack-regress/ref_designs/i2c/prim_subreg_arb.sv
+      - chipstack-regress/ref_designs/i2c/prim_subreg.sv
+      - chipstack-regress/ref_designs/i2c/prim_subreg_ext.sv
+      - chipstack-regress/ref_designs/i2c/prim_intr_hw.sv
+      - chipstack-regress/ref_designs/i2c/prim_generic_flop_2sync.sv
+      - chipstack-regress/ref_designs/i2c/prim_flop_2sync.sv
+      - chipstack-regress/ref_designs/i2c/prim_filter_ctr.sv
+      - chipstack-regress/ref_designs/i2c/prim_sec_anchor_buf.sv
+      - chipstack-regress/ref_designs/i2c/prim_diff_decode.sv
+      - chipstack-regress/ref_designs/i2c/prim_generic_flop.sv
+      - chipstack-regress/ref_designs/i2c/prim_flop.sv
+      - chipstack-regress/ref_designs/i2c/prim_sec_anchor_flop.sv
+      - chipstack-regress/ref_designs/i2c/prim_alert_sender.sv
+      - chipstack-regress/ref_designs/i2c/prim_count_pkg.sv
+      - chipstack-regress/ref_designs/i2c/prim_count.sv
+      - chipstack-regress/ref_designs/i2c/prim_fifo_sync_cnt.sv
+      - chipstack-regress/ref_designs/i2c/prim_fifo_sync.sv
+      - chipstack-regress/ref_designs/i2c/i2c_reg_pkg.sv
+      - chipstack-regress/ref_designs/i2c/i2c_reg_top.sv
+      - chipstack-regress/ref_designs/i2c/i2c_core.sv
+
+  apb_spi:
+    top : chipstack-regress/ref_designs/apb_spi/APB_SLAVE.v
+      
+  sdram_axi:
+    top : chipstack-regress/ref_designs/sdram_axi/sdram_axi.v
+    dependencies:
+      - chipstack-regress/ref_designs/sdram_axi/sdram_axi_pmem.v
+      - chipstack-regress/ref_designs/sdram_axi/sdram_axi_core.v
+
+  generic_fifo_dc:
+    top : chipstack-regress/ref_designs/gen_fifo/generic_fifo_dc.v
+    dependencies:
+      - chipstack-regress/ref_designs/gen_fifo/lfsr.v
+      - chipstack-regress/ref_designs/gen_fifo/timescale.v
+
+  generic_fifo_dc_gray:
+    top : chipstack-regress/ref_designs/gen_fifo/generic_fifo_dc_gray.v
+    dependencies:
+      - chipstack-regress/ref_designs/gen_fifo/lfsr.v
+      - chipstack-regress/ref_designs/gen_fifo/timescale.v
+      - chipstack-regress/ref_designs/gen_fifo/generic_fifo_dc.v
+
+  generic_fifo_sc_b:
+    top : chipstack-regress/ref_designs/gen_fifo/generic_fifo_sc_b.v
+    dependencies:
+      - chipstack-regress/ref_designs/gen_fifo/lfsr.v
+      - chipstack-regress/ref_designs/gen_fifo/timescale.v
+      - chipstack-regress/ref_designs/gen_fifo/generic_fifo_dc.v
+
+
+  generic_fifo_lfsr:
+    top : chipstack-regress/ref_designs/gen_fifo/generic_fifo_lfsr.v
+    dependencies:
+      - chipstack-regress/ref_designs/gen_fifo/lfsr.v
+      - chipstack-regress/ref_designs/gen_fifo/timescale.v
+      - chipstack-regress/ref_designs/gen_fifo/generic_fifo_dc.v
+
+  generic_fifo_sc_a:
+    top : chipstack-regress/ref_designs/gen_fifo/generic_fifo_sc_a.v
+    dependencies:
+      - chipstack-regress/ref_designs/gen_fifo/lfsr.v
+      - chipstack-regress/ref_designs/gen_fifo/timescale.v
+      - chipstack-regress/ref_designs/gen_fifo/generic_fifo_dc.v
+
+  apbi2c:
+    top : chipstack-regress/ref_designs/apbi2c/i2c.v
+    dependencies:
+      - chipstack-regress/ref_designs/apbi2c/fifo.v
+      - chipstack-regress/ref_designs/apbi2c/module_i2c.v
+      - chipstack-regress/ref_designs/apbi2c/apb.v
+  
+  rr_arbiter:
+    top : chipstack-regress/ref_designs/rr_arbiter/arbiter.v
+    dependencies:
+      - chipstack-regress/ref_designs/rr_arbiter/functions.v
+      - chipstack-regress/ref_designs/rr_arbiter/lfsr.v
+      - chipstack-regress/ref_designs/rr_arbiter/shifter.v
+      # - chipstack-regress/ref_designs/rr_arbiter/demo_top.v
+      - chipstack-regress/ref_designs/rr_arbiter/stretcher.v
+      - chipstack-regress/ref_designs/rr_arbiter/pulser.v
+      - chipstack-regress/ref_designs/rr_arbiter/debouncer.v
+      # - chipstack-regress/ref_designs/rr_arbiter/demo.v
+
+  sv_cdc_fifo_master:
+    top : chipstack-regress/ref_designs/sv-cdc-fifo-master/cdc_fifo.sv
+    dependencies:
+      - chipstack-regress/ref_designs/sv-cdc-fifo-master/gray_bin.v
+      - chipstack-regress/ref_designs/sv-cdc-fifo-master/bin_gray.v
+      - chipstack-regress/ref_designs/sv-cdc-fifo-master/dpram.sv
+      - chipstack-regress/ref_designs/sv-cdc-fifo-master/synchronizer.sv
+      - chipstack-regress/ref_designs/sv-cdc-fifo-master/cdc_fifo_read_state.sv
+      - chipstack-regress/ref_designs/sv-cdc-fifo-master/cdc_fifo_write_state.sv
+
+
+  wb2axi:
+    top : chipstack-regress/ref_designs/wb2axi/axi2wb.sv
+    dependencies:
+      - chipstack-regress/ref_designs/wb2axi/wb2axi_parameters.vh
+      - chipstack-regress/ref_designs/wb2axi/sync_single_ff.sv
+      - chipstack-regress/ref_designs/wb2axi/async_fifo.sv
+      - chipstack-regress/ref_designs/wb2axi/ifaces/wishbone_if.sv
+      - chipstack-regress/ref_designs/wb2axi/ifaces/axi_if.sv
+      - chipstack-regress/ref_designs/wb2axi/ifaces/sram_if.sv
+      - chipstack-regress/ref_designs/wb2axi/sync_double_ff.sv
+      - chipstack-regress/ref_designs/wb2axi/wb_egress.sv
+      - chipstack-regress/ref_designs/wb2axi/gray2bin.sv
+      - chipstack-regress/ref_designs/wb2axi/axi_ingress.sv
+      - chipstack-regress/ref_designs/wb2axi/bin2gray.sv
+      - chipstack-regress/ref_designs/wb2axi/sram_model.sv
+
+
+  meta_fdbs0_fdbs:
+    top : chipstack-regress/ref_designs/meta/smp/xrbase_alfred/fdbs0_fdbs/fdbs0_fdbs.v
+    dependencies:
+      - chipstack-regress/ref_designs/meta/smp/xrbase_alfred/fdbs0_fdbs/fdb0_fdb/fdb0_fdb.v
+      - chipstack-regress/ref_designs/meta/smp/xrbase_alfred/fdbs0_fdbs/fdb1_fdb/fdb1_fdb.v
+      - chipstack-regress/ref_designs/meta/smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_fdbs0_interface.sv
+      - chipstack-regress/ref_designs/meta/smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_sfdbs0_interface.sv
+
+  meta_fdb0_fdb:
+    top : chipstack-regress/ref_designs/meta/smp/xrbase_alfred/fdbs0_fdbs/fdb0_fdb/fdb0_fdb.v
+    dependencies:
+      - chipstack-regress/ref_designs/meta/smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_fdbs0_interface.sv
+      - chipstack-regress/ref_designs/meta/smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_sfdbs0_interface.sv
+
+  meta_fdb1_fdb:
+    top : chipstack-regress/ref_designs/meta/smp/xrbase_alfred/fdbs0_fdbs/fdb1_fdb/fdb1_fdb.v
+    dependencies:
+      - chipstack-regress/ref_designs/meta/smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_fdbs0_interface.sv
+      - chipstack-regress/ref_designs/meta/smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_sfdbs0_interface.sv
+
+

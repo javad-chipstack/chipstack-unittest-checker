@@ -1,0 +1,17 @@
+requests
+pytest
+wheel
+python-dotenv
+fastapi
+mypy
+black
+pygments
+types-requests
+types-pygments
+types-PyYAML
+types-pymysql
+pydantic
+pymysql
+numpy
+pandas
+pyyaml

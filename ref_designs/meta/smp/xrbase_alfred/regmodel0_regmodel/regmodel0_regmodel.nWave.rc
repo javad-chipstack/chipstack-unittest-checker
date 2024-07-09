@@ -1,0 +1,1266 @@
+addGroup "regmodel0_regmodel" -e TRUE
+addSubGroup "Clock & Reset" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/clk_i
+addSignal -h 15  /stim/top/xrbase/regmodel0/sys_reset_ni
+endSubGroup "Clock & Reset"
+
+addSubGroup "ocp2" -e FALSE
+addSubGroup "Request" -e FALSE
+aliasmapname mcmd
+nalias IDLE     3'h0   NULL
+nalias WR       3'h1   NULL
+nalias RD       3'h2   NULL
+nalias RDEX     3'h3   NULL
+nalias RDL      3'h4   NULL
+nalias WRNP     3'h5   NULL
+nalias WRC      3'h6   NULL
+nalias BCST     3'h7   NULL
+addSignal -h 15  -UNSIGNED -HEX /stim/top/xrbase/regmodel0/ocp2_MCmd_i[2:0]
+addSignal -h 15  -UNSIGNED -HEX /stim/top/xrbase/regmodel0/ocp2_MAddr_i[14:0]
+addSignal -h 15  -UNSIGNED -HEX /stim/top/xrbase/regmodel0/ocp2_MByteEn_i[3:0]
+addSignal -h 15  -UNSIGNED -HEX /stim/top/xrbase/regmodel0/ocp2_MReqInfo_i[5:0]
+addSignal -h 15  /stim/top/xrbase/regmodel0/ocp2_SCmdAccept_o
+endSubGroup "Request"
+
+addSubGroup "Data" -e FALSE
+addSignal -h 15  -UNSIGNED -HEX /stim/top/xrbase/regmodel0/ocp2_MData_i[31:0]
+endSubGroup "Data"
+
+addSubGroup "Response" -e FALSE
+aliasmapname sresp
+nalias NULL     2'h0   NULL
+nalias DVA      2'h1   NULL
+nalias FAIL     2'h2   NULL
+nalias ERR      2'h3   NULL
+addSignal -h 15  -UNSIGNED -HEX /stim/top/xrbase/regmodel0/ocp2_SResp_o[1:0]
+addSignal -h 15  -UNSIGNED -HEX /stim/top/xrbase/regmodel0/ocp2_SData_o[31:0]
+addSignal -h 15  /stim/top/xrbase/regmodel0/ocp2_MRespAccept_i
+endSubGroup "Response"
+
+addSubGroup "Sideband" -e FALSE
+endSubGroup "Sideband"
+
+endSubGroup "ocp2"
+
+addSubGroup "Reg Block: sfdbs0 (addr: 0x0)" -e FALSE
+addSubGroup "sfdb0_src0 (offset: 0x0)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src0_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src0_size_q
+endSubGroup "sfdb0_src0 (offset: 0x0)"
+
+addSubGroup "sfdb0_src1 (offset: 0x4)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src1_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src1_size_q
+endSubGroup "sfdb0_src1 (offset: 0x4)"
+
+addSubGroup "sfdb0_src2 (offset: 0x8)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src2_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src2_size_q
+endSubGroup "sfdb0_src2 (offset: 0x8)"
+
+addSubGroup "sfdb0_src3 (offset: 0xC)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src3_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src3_size_q
+endSubGroup "sfdb0_src3 (offset: 0xC)"
+
+addSubGroup "sfdb0_src4 (offset: 0x10)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src4_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src4_size_q
+endSubGroup "sfdb0_src4 (offset: 0x10)"
+
+addSubGroup "sfdb0_src5 (offset: 0x14)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src5_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src5_size_q
+endSubGroup "sfdb0_src5 (offset: 0x14)"
+
+addSubGroup "sfdb0_src6 (offset: 0x18)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src6_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src6_size_q
+endSubGroup "sfdb0_src6 (offset: 0x18)"
+
+addSubGroup "sfdb0_src7 (offset: 0x1C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src7_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src7_size_q
+endSubGroup "sfdb0_src7 (offset: 0x1C)"
+
+addSubGroup "sfdb0_src8 (offset: 0x20)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src8_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src8_size_q
+endSubGroup "sfdb0_src8 (offset: 0x20)"
+
+addSubGroup "sfdb0_src9 (offset: 0x24)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src9_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src9_size_q
+endSubGroup "sfdb0_src9 (offset: 0x24)"
+
+addSubGroup "sfdb0_src10 (offset: 0x28)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src10_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src10_size_q
+endSubGroup "sfdb0_src10 (offset: 0x28)"
+
+addSubGroup "sfdb0_src11 (offset: 0x2C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src11_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src11_size_q
+endSubGroup "sfdb0_src11 (offset: 0x2C)"
+
+addSubGroup "sfdb0_src12 (offset: 0x30)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src12_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src12_size_q
+endSubGroup "sfdb0_src12 (offset: 0x30)"
+
+addSubGroup "sfdb0_src13 (offset: 0x34)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src13_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src13_size_q
+endSubGroup "sfdb0_src13 (offset: 0x34)"
+
+addSubGroup "sfdb0_src14 (offset: 0x38)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src14_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src14_size_q
+endSubGroup "sfdb0_src14 (offset: 0x38)"
+
+addSubGroup "sfdb0_src15 (offset: 0x3C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src15_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_src15_size_q
+endSubGroup "sfdb0_src15 (offset: 0x3C)"
+
+addSubGroup "sfdb0_tgt (offset: 0x7C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb0_tgt_id_q
+endSubGroup "sfdb0_tgt (offset: 0x7C)"
+
+addSubGroup "ipc_sc (offset: 0x80)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_ipc_sc_id_q
+endSubGroup "ipc_sc (offset: 0x80)"
+
+addSubGroup "error_err_log (offset: 0xF0)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_log_code_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_log_code_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_log_code_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_log_access_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_log_access_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_log_access_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_log_id_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_log_id_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_log_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_log_multi_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_log_multi_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_log_multi_q
+endSubGroup "error_err_log (offset: 0xF0)"
+
+addSubGroup "error_err_data (offset: 0xF4)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_data_data_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_data_data_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_data_data_q
+endSubGroup "error_err_data (offset: 0xF4)"
+
+addSubGroup "error_err_idx (offset: 0xF8)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_idx_slice_idx_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_idx_slice_idx_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_idx_slice_idx_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_idx_group_idx_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_idx_group_idx_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_error_err_idx_group_idx_q
+endSubGroup "error_err_idx (offset: 0xF8)"
+
+addSubGroup "sfdb1_src0 (offset: 0x100)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src0_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src0_size_q
+endSubGroup "sfdb1_src0 (offset: 0x100)"
+
+addSubGroup "sfdb1_src1 (offset: 0x104)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src1_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src1_size_q
+endSubGroup "sfdb1_src1 (offset: 0x104)"
+
+addSubGroup "sfdb1_src2 (offset: 0x108)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src2_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src2_size_q
+endSubGroup "sfdb1_src2 (offset: 0x108)"
+
+addSubGroup "sfdb1_src3 (offset: 0x10C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src3_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src3_size_q
+endSubGroup "sfdb1_src3 (offset: 0x10C)"
+
+addSubGroup "sfdb1_src4 (offset: 0x110)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src4_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src4_size_q
+endSubGroup "sfdb1_src4 (offset: 0x110)"
+
+addSubGroup "sfdb1_src5 (offset: 0x114)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src5_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src5_size_q
+endSubGroup "sfdb1_src5 (offset: 0x114)"
+
+addSubGroup "sfdb1_src6 (offset: 0x118)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src6_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src6_size_q
+endSubGroup "sfdb1_src6 (offset: 0x118)"
+
+addSubGroup "sfdb1_src7 (offset: 0x11C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src7_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src7_size_q
+endSubGroup "sfdb1_src7 (offset: 0x11C)"
+
+addSubGroup "sfdb1_src8 (offset: 0x120)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src8_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src8_size_q
+endSubGroup "sfdb1_src8 (offset: 0x120)"
+
+addSubGroup "sfdb1_src9 (offset: 0x124)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src9_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src9_size_q
+endSubGroup "sfdb1_src9 (offset: 0x124)"
+
+addSubGroup "sfdb1_src10 (offset: 0x128)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src10_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src10_size_q
+endSubGroup "sfdb1_src10 (offset: 0x128)"
+
+addSubGroup "sfdb1_src11 (offset: 0x12C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src11_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src11_size_q
+endSubGroup "sfdb1_src11 (offset: 0x12C)"
+
+addSubGroup "sfdb1_src12 (offset: 0x130)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src12_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src12_size_q
+endSubGroup "sfdb1_src12 (offset: 0x130)"
+
+addSubGroup "sfdb1_src13 (offset: 0x134)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src13_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src13_size_q
+endSubGroup "sfdb1_src13 (offset: 0x134)"
+
+addSubGroup "sfdb1_src14 (offset: 0x138)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src14_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src14_size_q
+endSubGroup "sfdb1_src14 (offset: 0x138)"
+
+addSubGroup "sfdb1_src15 (offset: 0x13C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src15_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_src15_size_q
+endSubGroup "sfdb1_src15 (offset: 0x13C)"
+
+addSubGroup "sfdb1_tgt (offset: 0x17C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_sfdbs0_csr/sfdbs0_sfdb1_tgt_id_q
+endSubGroup "sfdb1_tgt (offset: 0x17C)"
+
+endSubGroup "Reg Block: sfdbs0 (addr: 0x0)"
+
+addSubGroup "Reg Block: fdbs0 (addr: 0x2000)" -e FALSE
+addSubGroup "fdb0_bell0 (offset: 0x0)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell0_fcnt_q
+endSubGroup "fdb0_bell0 (offset: 0x0)"
+
+addSubGroup "fdb0_bell1 (offset: 0x4)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell1_fcnt_q
+endSubGroup "fdb0_bell1 (offset: 0x4)"
+
+addSubGroup "fdb0_bell2 (offset: 0x8)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell2_fcnt_q
+endSubGroup "fdb0_bell2 (offset: 0x8)"
+
+addSubGroup "fdb0_bell3 (offset: 0xC)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell3_fcnt_q
+endSubGroup "fdb0_bell3 (offset: 0xC)"
+
+addSubGroup "fdb0_bell4 (offset: 0x10)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell4_fcnt_q
+endSubGroup "fdb0_bell4 (offset: 0x10)"
+
+addSubGroup "fdb0_bell5 (offset: 0x14)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell5_fcnt_q
+endSubGroup "fdb0_bell5 (offset: 0x14)"
+
+addSubGroup "fdb0_bell6 (offset: 0x18)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell6_fcnt_q
+endSubGroup "fdb0_bell6 (offset: 0x18)"
+
+addSubGroup "fdb0_bell7 (offset: 0x1C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell7_fcnt_q
+endSubGroup "fdb0_bell7 (offset: 0x1C)"
+
+addSubGroup "fdb0_bell8 (offset: 0x20)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell8_fcnt_q
+endSubGroup "fdb0_bell8 (offset: 0x20)"
+
+addSubGroup "fdb0_bell9 (offset: 0x24)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell9_fcnt_q
+endSubGroup "fdb0_bell9 (offset: 0x24)"
+
+addSubGroup "fdb0_bell10 (offset: 0x28)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell10_fcnt_q
+endSubGroup "fdb0_bell10 (offset: 0x28)"
+
+addSubGroup "fdb0_bell11 (offset: 0x2C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell11_fcnt_q
+endSubGroup "fdb0_bell11 (offset: 0x2C)"
+
+addSubGroup "fdb0_bell12 (offset: 0x30)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell12_fcnt_q
+endSubGroup "fdb0_bell12 (offset: 0x30)"
+
+addSubGroup "fdb0_bell13 (offset: 0x34)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell13_fcnt_q
+endSubGroup "fdb0_bell13 (offset: 0x34)"
+
+addSubGroup "fdb0_bell14 (offset: 0x38)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell14_fcnt_q
+endSubGroup "fdb0_bell14 (offset: 0x38)"
+
+addSubGroup "fdb0_bell15 (offset: 0x3C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_bell15_fcnt_q
+endSubGroup "fdb0_bell15 (offset: 0x3C)"
+
+addSubGroup "fdb0_control (offset: 0x74)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_control_ack_on_empty_q
+endSubGroup "fdb0_control (offset: 0x74)"
+
+addSubGroup "fdb0_enable (offset: 0x78)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_enable_enable_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_enable_enable_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_enable_enable_w
+endSubGroup "fdb0_enable (offset: 0x78)"
+
+addSubGroup "fdb0_status (offset: 0x7C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb0_status_status_d
+endSubGroup "fdb0_status (offset: 0x7C)"
+
+addSubGroup "fdb0_data0_fifo (offset: 0x80)" -e FALSE
+endSubGroup "fdb0_data0_fifo (offset: 0x80)"
+
+addSubGroup "fdb0_data1_fifo (offset: 0x90)" -e FALSE
+endSubGroup "fdb0_data1_fifo (offset: 0x90)"
+
+addSubGroup "fdb0_data2_fifo (offset: 0xA0)" -e FALSE
+endSubGroup "fdb0_data2_fifo (offset: 0xA0)"
+
+addSubGroup "fdb0_data3_fifo (offset: 0xB0)" -e FALSE
+endSubGroup "fdb0_data3_fifo (offset: 0xB0)"
+
+addSubGroup "fdb0_data4_fifo (offset: 0xC0)" -e FALSE
+endSubGroup "fdb0_data4_fifo (offset: 0xC0)"
+
+addSubGroup "fdb0_data5_fifo (offset: 0xD0)" -e FALSE
+endSubGroup "fdb0_data5_fifo (offset: 0xD0)"
+
+addSubGroup "fdb0_data6_fifo (offset: 0xE0)" -e FALSE
+endSubGroup "fdb0_data6_fifo (offset: 0xE0)"
+
+addSubGroup "fdb0_data7_fifo (offset: 0xF0)" -e FALSE
+endSubGroup "fdb0_data7_fifo (offset: 0xF0)"
+
+addSubGroup "fdb0_data8_fifo (offset: 0x100)" -e FALSE
+endSubGroup "fdb0_data8_fifo (offset: 0x100)"
+
+addSubGroup "fdb0_data9_fifo (offset: 0x110)" -e FALSE
+endSubGroup "fdb0_data9_fifo (offset: 0x110)"
+
+addSubGroup "fdb0_data10_fifo (offset: 0x120)" -e FALSE
+endSubGroup "fdb0_data10_fifo (offset: 0x120)"
+
+addSubGroup "fdb0_data11_fifo (offset: 0x130)" -e FALSE
+endSubGroup "fdb0_data11_fifo (offset: 0x130)"
+
+addSubGroup "fdb0_data12_fifo (offset: 0x140)" -e FALSE
+endSubGroup "fdb0_data12_fifo (offset: 0x140)"
+
+addSubGroup "fdb0_data13_fifo (offset: 0x150)" -e FALSE
+endSubGroup "fdb0_data13_fifo (offset: 0x150)"
+
+addSubGroup "fdb0_data14_fifo (offset: 0x160)" -e FALSE
+endSubGroup "fdb0_data14_fifo (offset: 0x160)"
+
+addSubGroup "fdb0_data15_fifo (offset: 0x170)" -e FALSE
+endSubGroup "fdb0_data15_fifo (offset: 0x170)"
+
+addSubGroup "fdb1_bell0 (offset: 0x200)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell0_fcnt_q
+endSubGroup "fdb1_bell0 (offset: 0x200)"
+
+addSubGroup "fdb1_bell1 (offset: 0x204)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell1_fcnt_q
+endSubGroup "fdb1_bell1 (offset: 0x204)"
+
+addSubGroup "fdb1_bell2 (offset: 0x208)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell2_fcnt_q
+endSubGroup "fdb1_bell2 (offset: 0x208)"
+
+addSubGroup "fdb1_bell3 (offset: 0x20C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell3_fcnt_q
+endSubGroup "fdb1_bell3 (offset: 0x20C)"
+
+addSubGroup "fdb1_bell4 (offset: 0x210)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell4_fcnt_q
+endSubGroup "fdb1_bell4 (offset: 0x210)"
+
+addSubGroup "fdb1_bell5 (offset: 0x214)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell5_fcnt_q
+endSubGroup "fdb1_bell5 (offset: 0x214)"
+
+addSubGroup "fdb1_bell6 (offset: 0x218)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell6_fcnt_q
+endSubGroup "fdb1_bell6 (offset: 0x218)"
+
+addSubGroup "fdb1_bell7 (offset: 0x21C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell7_fcnt_q
+endSubGroup "fdb1_bell7 (offset: 0x21C)"
+
+addSubGroup "fdb1_bell8 (offset: 0x220)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell8_fcnt_q
+endSubGroup "fdb1_bell8 (offset: 0x220)"
+
+addSubGroup "fdb1_bell9 (offset: 0x224)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell9_fcnt_q
+endSubGroup "fdb1_bell9 (offset: 0x224)"
+
+addSubGroup "fdb1_bell10 (offset: 0x228)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell10_fcnt_q
+endSubGroup "fdb1_bell10 (offset: 0x228)"
+
+addSubGroup "fdb1_bell11 (offset: 0x22C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell11_fcnt_q
+endSubGroup "fdb1_bell11 (offset: 0x22C)"
+
+addSubGroup "fdb1_bell12 (offset: 0x230)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell12_fcnt_q
+endSubGroup "fdb1_bell12 (offset: 0x230)"
+
+addSubGroup "fdb1_bell13 (offset: 0x234)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell13_fcnt_q
+endSubGroup "fdb1_bell13 (offset: 0x234)"
+
+addSubGroup "fdb1_bell14 (offset: 0x238)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell14_fcnt_q
+endSubGroup "fdb1_bell14 (offset: 0x238)"
+
+addSubGroup "fdb1_bell15 (offset: 0x23C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_cnt_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_cnt_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_cnt_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_cnt_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_failed_ring_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_failed_ring_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_failed_ring_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_max_priority_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_max_priority_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_max_priority_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_valid_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_valid_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_valid_fcnt_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_fcnt_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_fcnt_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_bell15_fcnt_q
+endSubGroup "fdb1_bell15 (offset: 0x23C)"
+
+addSubGroup "fdb1_control (offset: 0x274)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_control_ack_on_empty_q
+endSubGroup "fdb1_control (offset: 0x274)"
+
+addSubGroup "fdb1_enable (offset: 0x278)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_enable_enable_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_enable_enable_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_enable_enable_w
+endSubGroup "fdb1_enable (offset: 0x278)"
+
+addSubGroup "fdb1_status (offset: 0x27C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_fdbs0_csr/fdbs0_fdb1_status_status_d
+endSubGroup "fdb1_status (offset: 0x27C)"
+
+addSubGroup "fdb1_data0_fifo (offset: 0x280)" -e FALSE
+endSubGroup "fdb1_data0_fifo (offset: 0x280)"
+
+addSubGroup "fdb1_data1_fifo (offset: 0x290)" -e FALSE
+endSubGroup "fdb1_data1_fifo (offset: 0x290)"
+
+addSubGroup "fdb1_data2_fifo (offset: 0x2A0)" -e FALSE
+endSubGroup "fdb1_data2_fifo (offset: 0x2A0)"
+
+addSubGroup "fdb1_data3_fifo (offset: 0x2B0)" -e FALSE
+endSubGroup "fdb1_data3_fifo (offset: 0x2B0)"
+
+addSubGroup "fdb1_data4_fifo (offset: 0x2C0)" -e FALSE
+endSubGroup "fdb1_data4_fifo (offset: 0x2C0)"
+
+addSubGroup "fdb1_data5_fifo (offset: 0x2D0)" -e FALSE
+endSubGroup "fdb1_data5_fifo (offset: 0x2D0)"
+
+addSubGroup "fdb1_data6_fifo (offset: 0x2E0)" -e FALSE
+endSubGroup "fdb1_data6_fifo (offset: 0x2E0)"
+
+addSubGroup "fdb1_data7_fifo (offset: 0x2F0)" -e FALSE
+endSubGroup "fdb1_data7_fifo (offset: 0x2F0)"
+
+addSubGroup "fdb1_data8_fifo (offset: 0x300)" -e FALSE
+endSubGroup "fdb1_data8_fifo (offset: 0x300)"
+
+addSubGroup "fdb1_data9_fifo (offset: 0x310)" -e FALSE
+endSubGroup "fdb1_data9_fifo (offset: 0x310)"
+
+addSubGroup "fdb1_data10_fifo (offset: 0x320)" -e FALSE
+endSubGroup "fdb1_data10_fifo (offset: 0x320)"
+
+addSubGroup "fdb1_data11_fifo (offset: 0x330)" -e FALSE
+endSubGroup "fdb1_data11_fifo (offset: 0x330)"
+
+addSubGroup "fdb1_data12_fifo (offset: 0x340)" -e FALSE
+endSubGroup "fdb1_data12_fifo (offset: 0x340)"
+
+addSubGroup "fdb1_data13_fifo (offset: 0x350)" -e FALSE
+endSubGroup "fdb1_data13_fifo (offset: 0x350)"
+
+addSubGroup "fdb1_data14_fifo (offset: 0x360)" -e FALSE
+endSubGroup "fdb1_data14_fifo (offset: 0x360)"
+
+addSubGroup "fdb1_data15_fifo (offset: 0x370)" -e FALSE
+endSubGroup "fdb1_data15_fifo (offset: 0x370)"
+
+endSubGroup "Reg Block: fdbs0 (addr: 0x2000)"
+
+addSubGroup "Reg Block: smutex0 (addr: 0x3000)" -e FALSE
+addSubGroup "owner0 (offset: 0x0)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner0_id_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner0_id_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner0_id_q
+endSubGroup "owner0 (offset: 0x0)"
+
+addSubGroup "owner1 (offset: 0x4)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner1_id_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner1_id_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner1_id_q
+endSubGroup "owner1 (offset: 0x4)"
+
+addSubGroup "owner2 (offset: 0x8)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner2_id_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner2_id_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner2_id_q
+endSubGroup "owner2 (offset: 0x8)"
+
+addSubGroup "owner3 (offset: 0xC)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner3_id_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner3_id_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner3_id_q
+endSubGroup "owner3 (offset: 0xC)"
+
+addSubGroup "owner4 (offset: 0x10)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner4_id_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner4_id_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner4_id_q
+endSubGroup "owner4 (offset: 0x10)"
+
+addSubGroup "owner5 (offset: 0x14)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner5_id_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner5_id_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner5_id_q
+endSubGroup "owner5 (offset: 0x14)"
+
+addSubGroup "owner6 (offset: 0x18)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner6_id_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner6_id_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner6_id_q
+endSubGroup "owner6 (offset: 0x18)"
+
+addSubGroup "owner7 (offset: 0x1C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner7_id_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner7_id_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_owner7_id_q
+endSubGroup "owner7 (offset: 0x1C)"
+
+addSubGroup "ipc_sc (offset: 0x80)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_ipc_sc_id_q
+endSubGroup "ipc_sc (offset: 0x80)"
+
+addSubGroup "timeout (offset: 0xEC)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_timeout_compare_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_timeout_prescale_q
+endSubGroup "timeout (offset: 0xEC)"
+
+addSubGroup "error_err_log (offset: 0xF0)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_log_code_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_log_code_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_log_code_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_log_access_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_log_access_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_log_access_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_log_id_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_log_id_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_log_id_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_log_multi_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_log_multi_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_log_multi_q
+endSubGroup "error_err_log (offset: 0xF0)"
+
+addSubGroup "error_err_data (offset: 0xF4)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_data_data_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_data_data_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_data_data_q
+endSubGroup "error_err_data (offset: 0xF4)"
+
+addSubGroup "error_err_idx (offset: 0xF8)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_idx_mutex_idx_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_idx_mutex_idx_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_smutex0_csr/smutex0_error_err_idx_mutex_idx_q
+endSubGroup "error_err_idx (offset: 0xF8)"
+
+endSubGroup "Reg Block: smutex0 (addr: 0x3000)"
+
+addSubGroup "Reg Block: mutex0 (addr: 0x4000)" -e FALSE
+addSubGroup "mutex0 (offset: 0x0)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex0_swid_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex0_swid_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex0_swid_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex0_swid_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex0_lock_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex0_lock_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex0_lock_w
+endSubGroup "mutex0 (offset: 0x0)"
+
+addSubGroup "mutex1 (offset: 0x4)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex1_swid_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex1_swid_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex1_swid_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex1_swid_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex1_lock_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex1_lock_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex1_lock_w
+endSubGroup "mutex1 (offset: 0x4)"
+
+addSubGroup "mutex2 (offset: 0x8)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex2_swid_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex2_swid_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex2_swid_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex2_swid_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex2_lock_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex2_lock_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex2_lock_w
+endSubGroup "mutex2 (offset: 0x8)"
+
+addSubGroup "mutex3 (offset: 0xC)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex3_swid_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex3_swid_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex3_swid_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex3_swid_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex3_lock_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex3_lock_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex3_lock_w
+endSubGroup "mutex3 (offset: 0xC)"
+
+addSubGroup "mutex4 (offset: 0x10)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex4_swid_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex4_swid_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex4_swid_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex4_swid_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex4_lock_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex4_lock_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex4_lock_w
+endSubGroup "mutex4 (offset: 0x10)"
+
+addSubGroup "mutex5 (offset: 0x14)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex5_swid_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex5_swid_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex5_swid_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex5_swid_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex5_lock_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex5_lock_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex5_lock_w
+endSubGroup "mutex5 (offset: 0x14)"
+
+addSubGroup "mutex6 (offset: 0x18)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex6_swid_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex6_swid_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex6_swid_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex6_swid_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex6_lock_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex6_lock_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex6_lock_w
+endSubGroup "mutex6 (offset: 0x18)"
+
+addSubGroup "mutex7 (offset: 0x1C)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex7_swid_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex7_swid_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex7_swid_w
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex7_swid_r
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex7_lock_din
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex7_lock_qout
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_mutex0_csr/mutex0_mutex7_lock_w
+endSubGroup "mutex7 (offset: 0x1C)"
+
+endSubGroup "Reg Block: mutex0 (addr: 0x4000)"
+
+addSubGroup "Reg Block: web0 (addr: 0x5000)" -e FALSE
+addSubGroup "control (offset: 0x0)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_control_activate_low_pwr_edge_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_control_event_suppress_edge_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_control_wake_now_edge_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_control_epu_enable_edge_q
+endSubGroup "control (offset: 0x0)"
+
+addSubGroup "event_set (offset: 0x4)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_activate_low_pwr_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_activate_low_pwr_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_activate_low_pwr_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_event_suppress_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_event_suppress_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_event_suppress_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_wake_now_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_wake_now_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_wake_now_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_epu_enable_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_epu_enable_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_epu_enable_q
+endSubGroup "event_set (offset: 0x4)"
+
+addSubGroup "event_clr (offset: 0x8)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_activate_low_pwr_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_activate_low_pwr_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_activate_low_pwr_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_event_suppress_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_event_suppress_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_event_suppress_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_wake_now_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_wake_now_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_wake_now_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_epu_enable_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_epu_enable_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_event_epu_enable_q
+endSubGroup "event_clr (offset: 0x8)"
+
+addSubGroup "wake_enable0 (offset: 0x20)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_wake_enable0_enable_q
+endSubGroup "wake_enable0 (offset: 0x20)"
+
+addSubGroup "wake_enable1 (offset: 0x24)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_wake_enable1_enable_q
+endSubGroup "wake_enable1 (offset: 0x24)"
+
+addSubGroup "input_invert0 (offset: 0x40)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_input_invert0_invert_q
+endSubGroup "input_invert0 (offset: 0x40)"
+
+addSubGroup "input_invert1 (offset: 0x44)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web0_csr/web0_input_invert1_invert_q
+endSubGroup "input_invert1 (offset: 0x44)"
+
+endSubGroup "Reg Block: web0 (addr: 0x5000)"
+
+addSubGroup "Reg Block: web1 (addr: 0x6000)" -e FALSE
+addSubGroup "control (offset: 0x0)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_control_activate_low_pwr_edge_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_control_event_suppress_edge_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_control_wake_now_edge_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_control_epu_enable_edge_q
+endSubGroup "control (offset: 0x0)"
+
+addSubGroup "event_set (offset: 0x4)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_activate_low_pwr_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_activate_low_pwr_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_activate_low_pwr_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_event_suppress_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_event_suppress_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_event_suppress_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_wake_now_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_wake_now_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_wake_now_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_epu_enable_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_epu_enable_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_epu_enable_q
+endSubGroup "event_set (offset: 0x4)"
+
+addSubGroup "event_clr (offset: 0x8)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_activate_low_pwr_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_activate_low_pwr_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_activate_low_pwr_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_event_suppress_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_event_suppress_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_event_suppress_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_wake_now_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_wake_now_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_wake_now_q
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_epu_enable_d
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_epu_enable_enb
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_event_epu_enable_q
+endSubGroup "event_clr (offset: 0x8)"
+
+addSubGroup "wake_enable0 (offset: 0x20)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_wake_enable0_enable_q
+endSubGroup "wake_enable0 (offset: 0x20)"
+
+addSubGroup "wake_enable1 (offset: 0x24)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_wake_enable1_enable_q
+endSubGroup "wake_enable1 (offset: 0x24)"
+
+addSubGroup "input_invert0 (offset: 0x40)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_input_invert0_invert_q
+endSubGroup "input_invert0 (offset: 0x40)"
+
+addSubGroup "input_invert1 (offset: 0x44)" -e FALSE
+addSignal -h 15  /stim/top/xrbase/regmodel0/i_regmodel0_regmodel_core/i_regmodel0_regmodel_core_web1_csr/web1_input_invert1_invert_q
+endSubGroup "input_invert1 (offset: 0x44)"
+
+endSubGroup "Reg Block: web1 (addr: 0x6000)"
+

@@ -1,0 +1,30 @@
+
+services:
+  regressiondb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: regressiondb-container
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: regression  # Replace with your actual root password
+      MYSQL_DATABASE: regressiondb     # Replace with your actual database name if needed
+      MYSQL_USER: user                 # Replace with your actual database user
+      MYSQL_PASSWORD: regression       # Replace with your actual database user password
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+
+
+
+#use admin
+#db.auth("root", "regress")
+#use regress_db
+# db.mycollection.insertOne({ name: "John Doe", age: 30 })
+# db.your_collection_name.find().pretty()
+# mongosh
+# use exampleDB
+# db.dropDatabase()

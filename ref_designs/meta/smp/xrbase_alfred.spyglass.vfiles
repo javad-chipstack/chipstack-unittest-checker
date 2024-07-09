@@ -1,0 +1,36 @@
+// soccomp Version 10.3.0 (2ed27f84a)
+// (c) Meta Platforms, Inc. and affiliates. Confidential and proprietary.
+// Started soccomp on: Tue Dec 13 16:10:20 2022
+// SONICS_PATH = :/nfs/project/ipgen/src/valerioc/fbrepo/common/build_root/install/studio/../extensions/include
+// PYTHONPATH = PythonPathUnset
+// /nfs/regress_03_ash/sonics/nightly/sonics-no-sysc-py3-daily-20221213_140241/install/studio-10.3/sonics_code/soccomp.py --relative --uvm_test --designdir ./smp --instance xrbase --post_process /nfs/project/ipgen/src/valerioc/fbrepo/common/src/neev/ipBuilder/neev/ipBuilder/GenerateIPDefs.py{"levels":"1|tile"} xrbase_alfred_smp.conf
+// @generated
++libext+.v+.sv+.svh
+-y $SONICS_HOME/lib/sonics
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_ocp2_interface.sv
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_sfdbs0_interface.sv
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_fdbs0_interface.sv
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_smutex0_interface.sv
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_mutex0_interface.sv
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_web0_interface.sv
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_web1_interface.sv
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_interface.sv
+./smp/xrbase_alfred/xrbase_alfred_irq_interface.sv
+./smp/xrbase_alfred/xrbase_alfred.v
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel.v
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_core.v
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_core_reg_intf.v
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_core_reg_intf_reqbuf/regmodel0_regmodel_core_reg_intf_reqbuf.v
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_core_reg_intf_respbuf/regmodel0_regmodel_core_reg_intf_respbuf.v
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_core_sfdbs0_csr.v
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_core_fdbs0_csr.v
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_core_smutex0_csr.v
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_core_mutex0_csr.v
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_core_web0_csr.v
+./smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_core_web1_csr.v
+./smp/xrbase_alfred/fdbs0_fdbs/fdbs0_fdbs.v
+./smp/xrbase_alfred/fdbs0_fdbs/fdb0_fdb/fdb0_fdb.v
+./smp/xrbase_alfred/fdbs0_fdbs/fdb1_fdb/fdb1_fdb.v
+./smp/xrbase_alfred/mutex0_mutex/mutex0_mutex.v
+./smp/xrbase_alfred/web0_web/web0_web.v
+./smp/xrbase_alfred/web1_web/web1_web.v

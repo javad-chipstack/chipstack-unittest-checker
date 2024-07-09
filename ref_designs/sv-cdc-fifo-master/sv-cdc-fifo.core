@@ -1,0 +1,20 @@
+CAPI=2:
+name: kwilke:simple:sv-cdc-fifo:1.0.0
+description: A clock-crossing FIFO
+
+filesets:
+  rtl:
+    files:
+      - cdc_fifo.sv
+      - cdc_fifo_read_state.sv
+      - cdc_fifo_write_state.sv
+    file_type: systemVerilogSource
+    depend:
+      - kwilke:simple:sv-graycode:1.0.0
+      - kwilke:simple:sv-synchronizer:1.0.0
+      - kwilke:simple:sv-dpram:1.0.0
+
+targets:
+  default: &default
+    filesets:
+      - rtl

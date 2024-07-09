@@ -1,0 +1,5 @@
+fdbs0_fdbs/fdb0_fdb/fdb0_fdb.v
+fdbs0_fdbs/fdb1_fdb/fdb1_fdb.v
+regmodel0_regmodel/regmodel0_regmodel_fdbs0_interface.sv
+regmodel0_regmodel/regmodel0_regmodel_sfdbs0_interface.sv
+fdbs0_fdbs/fdbs0_fdbs.v

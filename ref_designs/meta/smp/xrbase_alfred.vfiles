@@ -1,0 +1,10 @@
+// soccomp Version 10.3.0 (2ed27f84a)
+// (c) Meta Platforms, Inc. and affiliates. Confidential and proprietary.
+// Started soccomp on: Tue Dec 13 16:10:20 2022
+// SONICS_PATH = :/nfs/project/ipgen/src/valerioc/fbrepo/common/build_root/install/studio/../extensions/include
+// PYTHONPATH = PythonPathUnset
+// /nfs/regress_03_ash/sonics/nightly/sonics-no-sysc-py3-daily-20221213_140241/install/studio-10.3/sonics_code/soccomp.py --relative --uvm_test --designdir ./smp --instance xrbase --post_process /nfs/project/ipgen/src/valerioc/fbrepo/common/src/neev/ipBuilder/neev/ipBuilder/GenerateIPDefs.py{"levels":"1|tile"} xrbase_alfred_smp.conf
+// @generated
+-f ./smp/top.pkg.vfiles
+-f ./smp/top.beh.vfiles
+-f ./smp/top.rtl.vfiles
