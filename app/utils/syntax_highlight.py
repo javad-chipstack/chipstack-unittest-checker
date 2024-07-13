@@ -1,4 +1,5 @@
 import json
+import html
 from pygments import highlight
 from typing import List, Dict, Tuple
 from pygments.formatters import HtmlFormatter
@@ -204,8 +205,8 @@ def create_syntax_correction_report(logs: List[Tuple[str, str]]) -> str:
             html_sections.append(
                 f"""
 <div class="log-container">
-    <span class="log-title">{log[1]["title"]}:</span>
-    <pre class="log-text">{log[1]["text"]}</pre>
+    <span class="log-title">{html.escape(log[1]["title"])}:</span>
+    <pre class="log-text"><code>{html.escape(log[1]["text"])}</code></pre>
 </div>
 """
             )

@@ -472,7 +472,7 @@ class GenerateUnitTest(BaseModel):
             codeblocks_that_need_syntax_check = []
             codeblocks_that_need_syntax_check_indexes = []
 
-            for idx, module in enumerate(self.syntax_correction.codeblocks):
+            for cb_id, module in enumerate(self.syntax_correction.codeblocks):
                 if skip_syntax_check(cur_attempt, module):
                     continue
 
@@ -502,7 +502,7 @@ class GenerateUnitTest(BaseModel):
                         "other_issues": [],
                     }
                     codeblocks_that_need_syntax_check.append(correction_context)
-                    codeblocks_that_need_syntax_check_indexes.append(idx)
+                    codeblocks_that_need_syntax_check_indexes.append(cb_id)
                 else:
                     module.correction_history[-1].output_code = module_codeblock_raw
                     module.final_code = module_codeblock_raw
@@ -1007,7 +1007,7 @@ class GenerateUnitTest(BaseModel):
                 coverage_details.append(
                     {
                         "name": coverage_item,
-                        "value": coverage.get(coverage_item, 0),
+                        "value": coverage.get(coverage_item, "0"),
                     }
                 )
 
@@ -1208,60 +1208,107 @@ class GenerateUnitTest(BaseModel):
         #     print (f"Codeblock: {cb_name}, Initial syntax issues: {nr_initial_syntax_issues}\n")
 
     def dump_per_test_all_results(self):
-        for idx, cb in enumerate(self.syntax_correction.codeblocks):
+        for cb_idx, cb in enumerate(self.syntax_correction.codeblocks):
             try:
                 module_name = get_module_name_from_codeblock(cb.orig_code)
                 if not module_name:
-                    module_name = f"module_{idx}"
+                    module_name = f"module_{cb_idx}"
 
                 logs = [
                     (
                         "title-text",
-                        {"title": "Scenario name", "text": self.scenarios[idx]["name"]},
-                    ),
-                    (
-                        "title-text",
                         {
-                            "title": "Scenario category",
-                            "text": self.scenarios[idx]["category"],
+                            "title": "Scenario name",
+                            "text": self.scenarios[cb_idx]["name"],
                         },
                     ),
                     (
                         "title-text",
                         {
-                            "title": "Scenario prompt",
-                            "text": self.scenarios[idx]
+                            "title": "Scenario category",
+                            "text": self.scenarios[cb_idx]["category"],
+                        },
+                    ),
+                    (
+                        "title-text",
+                        {
+                            "title": "Scenario system prompt",
+                            "text": self.scenarios[cb_idx]
                             .get("metadata", "")
-                            .get("logs", ""),
+                            .get("logs", "")
+                            .get("system_prompt", ""),
+                        },
+                    ),
+                    (
+                        "title-text",
+                        {
+                            "title": "Scenario user prompt",
+                            "text": self.scenarios[cb_idx]
+                            .get("metadata", "")
+                            .get("logs", "")
+                            .get("user_prompt", ""),
                         },
                     ),
                     (
                         "title-text",
                         {
                             "title": "Scenario description",
-                            "text": self.scenarios[idx]["description"],
+                            "text": self.scenarios[cb_idx]["description"],
                         },
                     ),
                 ]
 
                 for code_gen_step in range(
-                    len(self.testbench_code_gen_prompt_response[idx])
+                    len(self.testbench_code_gen_prompt_response[cb_idx])
                 ):
-                    prompt = self.testbench_code_gen_prompt_response[idx][
-                        code_gen_step
-                    ].get("prompt", "")
-                    response = self.testbench_code_gen_prompt_response[idx][
+                    if (
+                        "system_prompt"
+                        in self.testbench_code_gen_prompt_response[cb_idx][
+                            code_gen_step
+                        ]
+                    ):
+                        system_prompt = self.testbench_code_gen_prompt_response[cb_idx][
+                            code_gen_step
+                        ].get("system_prompt", "")
+                        logs.append(
+                            (
+                                "title-text",
+                                {
+                                    "title": f"Code generation #{code_gen_step} system_prompt",
+                                    "text": system_prompt,
+                                },
+                            )
+                        )
+                        user_prompt = self.testbench_code_gen_prompt_response[cb_idx][
+                            code_gen_step
+                        ].get("user_prompt", "")
+                        logs.append(
+                            (
+                                "title-text",
+                                {
+                                    "title": f"Code generation #{code_gen_step} user_prompt",
+                                    "text": user_prompt,
+                                },
+                            )
+                        )
+
+                    else:
+                        prompt = self.testbench_code_gen_prompt_response[cb_idx][
+                            code_gen_step
+                        ].get("prompt", "")
+                        logs.append(
+                            (
+                                "title-text",
+                                {
+                                    "title": f"Code generation #{code_gen_step} prompt",
+                                    "text": prompt,
+                                },
+                            )
+                        )
+
+                    response = self.testbench_code_gen_prompt_response[cb_idx][
                         code_gen_step
                     ].get("response", "")
-                    logs.append(
-                        (
-                            "title-text",
-                            {
-                                "title": f"Code generation #{code_gen_step} prompt",
-                                "text": prompt,
-                            },
-                        )
-                    )
                     logs.append(
                         (
                             "title-text",

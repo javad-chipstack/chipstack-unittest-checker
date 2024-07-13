@@ -330,10 +330,10 @@ logs: {logs}
                 results.append(format_tests(tests))
 
             if run_id and os.path.exists(
-                os.path.join(design.design_info.outdir, run_id)
+                os.path.join(design.design_info.outdir, "run_dir")
             ):
                 results.append(
-                    f'<li class="list-item-pointer">Run ID: <a href="{os.path.join(design.design_info.outdir_rel, run_id)}">{run_id}</a></li>'
+                    f'<li class="list-item-pointer">Run ID: <a href="{os.path.join(design.design_info.outdir_rel, "run_dir")}">{run_id}</a></li>'
                 )
             else:
                 results.append(
