@@ -590,14 +590,15 @@ class GenerateUnitTest(BaseModel):
         with open(file_path, "r") as file:
             content = file.read()
             # Use regular expression to find all instances of module\s_+test_\w+
-            pattern = r"module\s+test_\w+"
+            pattern = r"module\s+test_\w+\b"
             matches = re.findall(pattern, content)
 
             # Replace each match with a link to the corresponding module
             for match in matches:
                 module_name = match.replace("module", "").strip()
                 link = f'<a href="syntax_correction/{module_name}.html">{match}</a>'
-                content = content.replace(match, link)
+                # content = content.replace(match, link)
+                content = re.sub(rf"\b{re.escape(match)}\b", link, content)
 
         with open(file_path, "w") as file:
             file.write(content)
