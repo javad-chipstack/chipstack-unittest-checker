@@ -26,6 +26,7 @@ from app.utils.time import get_current_time
 from app.utils.ssh import check_passwordless_ssh
 from app.utils.file import create_directory_recursive
 from app.utils.module import get_module_name_from_codeblock
+from app.utils.strings import indent_multiline_string
 
 
 class DesignInfo(BaseModel):
@@ -1323,6 +1324,34 @@ class GenerateUnitTest(BaseModel):
                 for attempt, correction_history in enumerate(cb.correction_history):
                     logs.append(("sv", correction_history.input_code))
                     logs.append(("issues", correction_history.syntax_issues.errors))
+
+                if self.run_test_result:
+                    test_result = {}
+                    for test in self.run_test_result.get("tests", []):
+                        if test.get("name") == module_name:
+                            test_result = test
+                            break
+                    run_test_result = ""
+                    run_test_result += (
+                        f"Run ID: {self.run_test_result.get('run-id', 'N.A.')}\n"
+                    )
+                    run_test_result += (
+                        f"Test result: {test_result.get('result', 'N.A.')}\n"
+                    )
+                    st = indent_multiline_string(
+                        "\n".join(test_result.get("detail_info", []))
+                    )
+                    run_test_result += f"Test details: \n{st}\n"
+
+                    logs.append(
+                        (
+                            "title-text",
+                            {
+                                "title": "Test results",
+                                "text": run_test_result,
+                            },
+                        )
+                    )
 
                 syntax_correction_rpt = create_syntax_correction_report(logs)
                 write_str_to_file(
