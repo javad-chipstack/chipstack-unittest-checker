@@ -222,7 +222,6 @@ def create_syntax_correction_report(logs: List[Tuple[str, str]]) -> str:
             color: #0077aa; /* Blue */
             font-weight: bold;
         }
-        
         span.n {/* Number */
             color: #009900; /* Green */
         }
@@ -235,44 +234,34 @@ def create_syntax_correction_report(logs: List[Tuple[str, str]]) -> str:
         span.s {/* String */
             color: #dd1144; /* Red */
         }
-
         span.na {/* Name */
             color: #333333; /* Black */
         }
-
         span.nc {/* Name.Class */
             color: #445588; /* Dark blue */
         }
-
         span.no {/* Name.Constant */
             color: #336699; /* Medium blue */
         }
-
         span.np {/* Name.Property */
             color: #009999; /* Dark cyan */
         }
-
         span.nb {/* Name.Builtin */
             color: #999999; /* Gray */
         }
-
         span.nn { /* Name.Namespace */
             color: #555555; /* Dark gray */
         }
-
         /* Name.Tag */
         span.nt {
             color: #660066; /* Purple */
         }
-
         span.nd {/* Name.Decorator */
             color: #aa22ff; /* Light purple */
         }
-
         span.p {/* Punctuation */
             color: #000000; /* Black */
         }
-
         span.w {/* Whitespace */
             color: inherit;
         }

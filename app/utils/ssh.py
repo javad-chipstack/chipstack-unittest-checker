@@ -20,9 +20,9 @@ def check_passwordless_ssh(run_id: str, outdir_str) -> bool:
     try:
         # Attempt SSH login without password
         if eda_server_ssh_port:
-            ssh_command = f"sshpass -pVSLVfDaZSkxlPjiAldd ssh -p {eda_server_ssh_port} {eda_server_ssh_login_info} exit > /dev/null 2>&1"
+            ssh_command = f"sshpass -pMehr2388 ssh -p {eda_server_ssh_port} {eda_server_ssh_login_info} exit > /dev/null 2>&1"
         else:
-            ssh_command = f"sshpass -pVSLVfDaZSkxlPjiAldd ssh {eda_server_ssh_login_info} exit > /dev/null 2>&1"
+            ssh_command = f"sshpass -pMehr2388 ssh {eda_server_ssh_login_info} exit > /dev/null 2>&1"
         subprocess.run(ssh_command, shell=True, check=True)
     except subprocess.CalledProcessError as e:
         print(f"[ERROR {get_current_time()}] Passwordless SSH is not set up. {e}")
@@ -34,9 +34,9 @@ def check_passwordless_ssh(run_id: str, outdir_str) -> bool:
     # copy dir recursively from remote dir to local dir
     try:
         if eda_server_ssh_port:
-            scp_command = f"sshpass -pVSLVfDaZSkxlPjiAldd rsync -av -e \"ssh -p {eda_server_ssh_port}\" --exclude='**/xcelium.d/' --exclude='**/cov_work/' -e 'sshpass -pVSLVfDaZSkxlPjiAldd ssh -p {eda_server_ssh_port}' {eda_server_ssh_login_info}:/tmp/eda/{run_id}/ {outdir_str}/run_dir/ > /dev/null 2>&1"
+            scp_command = f"sshpass -pMehr2388 rsync -av -e \"ssh -p {eda_server_ssh_port}\" --exclude='**/xcelium.d/' --exclude='**/cov_work/' -e 'sshpass -pMehr2388 ssh -p {eda_server_ssh_port}' {eda_server_ssh_login_info}:/tmp/eda/{run_id}/ {outdir_str}/run_dir/ > /dev/null 2>&1"
         else:
-            scp_command = f"sshpass -pVSLVfDaZSkxlPjiAldd rsync -av --exclude='**/xcelium.d/' --exclude='**/cov_work/' {eda_server_ssh_login_info}:/tmp/eda/{run_id}/ {outdir_str}/run_dir/ > /dev/null 2>&1"
+            scp_command = f"sshpass -pMehr2388 rsync -av --exclude='**/xcelium.d/' --exclude='**/cov_work/' {eda_server_ssh_login_info}:/tmp/eda/{run_id}/ {outdir_str}/run_dir/ > /dev/null 2>&1"
         subprocess.run(scp_command, shell=True, check=True)
         return True
     except subprocess.CalledProcessError as e:
