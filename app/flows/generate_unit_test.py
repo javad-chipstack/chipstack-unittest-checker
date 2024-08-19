@@ -563,6 +563,7 @@ class GenerateUnitTest(BaseModel):
             unit_test_tb = self.client_v2.compose_simulation_unit_tests(
                 tasks=self.codeblocks_to_compose["tasks"],
                 modules=self.codeblocks_to_compose["modules"],
+                primitives=self.decomposed_unit_tests["primitives"],
                 dut_parsed_model=self.parsed_design,
             )
         else:
@@ -1352,6 +1353,24 @@ class GenerateUnitTest(BaseModel):
                             },
                         )
                     )
+
+                if self.run_test_result and self.config.unit_test_flow == "Simulation":
+                    lst = self.run_test_result.get("tests", [])
+                    run_test_result = {}
+                    for test in lst:
+                        if test.get("name") == module_name:
+                            run_test_result = test
+                            break
+                    if run_test_result:
+                        logs.append(
+                            (
+                                "title-text",
+                                {
+                                    "title": "Test results JSON",
+                                    "text": json.dumps(run_test_result, indent=4),
+                                },
+                            )
+                        )
 
                 syntax_correction_rpt = create_syntax_correction_report(logs)
                 write_str_to_file(
