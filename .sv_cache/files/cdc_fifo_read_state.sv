@@ -1,0 +1,1 @@
+/Users/javad/dev/chipstack-unittest-checker/old_outdirs/outdir_new_2/sv_cdc_fifo_master/dut/cdc_fifo_read_state.sv

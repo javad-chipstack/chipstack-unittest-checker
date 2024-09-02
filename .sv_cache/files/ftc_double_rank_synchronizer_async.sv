@@ -1,0 +1,1 @@
+/Users/javad/dev/chipstack-unittest-checker/ref_designs/other/meta/web1/ftc_double_rank_synchronizer_async.sv

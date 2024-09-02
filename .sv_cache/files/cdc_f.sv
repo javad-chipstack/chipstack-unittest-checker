@@ -1,0 +1,1 @@
+/Users/javad/dev/chipstack-unittest-checker/ref_designs/other/cdc_fifo/cdc_fifo_no_param/cdc_f.sv

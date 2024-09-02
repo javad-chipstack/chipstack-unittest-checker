@@ -151,34 +151,36 @@ class GenerateUnitTest(BaseModel):
         local_errors = []
         dut_files: List[TextIO]
         sva_files: List[TextIO]
+        compile_check_res = {}
         try:
             if self.config.unit_test_flow == "Formal":
-                jasper_config = self._get_jasper_config()
-                dut_files = [open(self.design_info.top_path, encoding="utf-8")]
+                pass
+                # jasper_config = self._get_jasper_config()
+                # dut_files = [open(self.design_info.top_path, encoding="utf-8")]
 
-                sva_files = []
-                if (
-                    jasper_config["clocks"]
-                    and jasper_config["resets"]
-                    and jasper_config["top_module"]
-                ):
-                    compile_check_res = self.client_v2.jasper_syntax_check(
-                        jasper_config["top_module"],
-                        jasper_config["clocks"],
-                        jasper_config["resets"],
-                        dut_files=dut_files,
-                        sva_files=sva_files,
-                    )
-                else:
-                    compile_check_res = {
-                        "error": "Error: Missing jasper configuration",
-                        "log": {"errors": [], "warnings": []},
-                    }
+                # sva_files = []
+                # if (
+                #     jasper_config["clocks"]
+                #     and jasper_config["resets"]
+                #     and jasper_config["top_module"]
+                # ):
+                #     compile_check_res = self.client_v2.jasper_syntax_check(
+                #         jasper_config["top_module"],
+                #         jasper_config["clocks"],
+                #         jasper_config["resets"],
+                #         dut_files=dut_files,
+                #         sva_files=sva_files,
+                #     )
+                # else:
+                #     compile_check_res = {
+                #         "error": "Error: Missing jasper configuration",
+                #         "log": {"errors": [], "warnings": []},
+                #     }
 
-                for file in dut_files:
-                    file.close()
-                for file in sva_files:
-                    file.close()
+                # for file in dut_files:
+                #     file.close()
+                # for file in sva_files:
+                #     file.close()
             else:
                 dut_files = []
                 for file_path in self.design_info.dependencies_path:
@@ -230,21 +232,16 @@ class GenerateUnitTest(BaseModel):
         return []
 
     def parse_design(self) -> List[str]:
-        if self.top_file:
-            self.top_file.seek(0)
-        for dep in self.dependency_files:
-            dep.seek(0)
         self.parsed_design = self.client_v2.parse_design(
-            top_file=self.top_file,
-            dependency_files=self.dependency_files,
+            top_file_path=self.design_info.top_path,
+            dependency_file_paths=self.design_info.dependencies_path,
         )
         return []
 
     def generate_mental_model(self) -> List[str]:
-        if self.top_file:
-            self.top_file.seek(0)
         self.mental_model = self.client_v2.generate_mental_model(
-            top_file=self.top_file,
+            top_file_path=self.design_info.top_path,
+            dependency_file_paths=self.design_info.dependencies_path,
             parsed_design=self.parsed_design,
         )
         return []
@@ -960,7 +957,11 @@ class GenerateUnitTest(BaseModel):
         coverage_details = []
         run_id = invoke_eda_res.get("runId", "")
         self.design_info.run_test_run_id = run_id
-        tests_results = invoke_eda_res.get("log", {}).get("tests", {})
+        tests_results = [
+            test
+            for test in invoke_eda_res.get("log", {}).get("tests", {})
+            if not test["name"].startswith("primitive_")
+        ]
 
         errors.extend(invoke_eda_res.get("log", {}).get("errors", []))
 

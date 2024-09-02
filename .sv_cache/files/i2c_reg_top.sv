@@ -1,0 +1,1 @@
+/Users/javad/dev/chipstack-unittest-checker/old_outdirs/outdir.back2/i2c/dut/i2c_reg_top.sv

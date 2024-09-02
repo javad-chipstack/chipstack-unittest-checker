@@ -1,0 +1,1 @@
+/Users/javad/dev/chipstack-unittest-checker/ref_designs/meta/smp/ral/xrbase_alfred_reg.sv

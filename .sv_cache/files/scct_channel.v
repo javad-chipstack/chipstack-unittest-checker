@@ -1,0 +1,1 @@
+/Users/javad/dev/chipstack-unittest-checker/ref_designs/scc/scct_channel.v

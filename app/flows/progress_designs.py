@@ -12,7 +12,6 @@ from chipstack_client.client_v2 import ClientV2
 from app.utils.file import create_outdir, write_str_to_file
 from app.flows.generate_unit_test import DesignInfo
 from app.flows.top_html_report import TopHtmlReport
-from app.utils.numbers import convert_to_number
 from app.utils.time import get_current_time
 
 

@@ -39,4 +39,6 @@ back**
 tmp/**
 .env
 
+venv/**
+
 

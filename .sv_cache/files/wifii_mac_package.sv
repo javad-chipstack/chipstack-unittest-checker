@@ -1,0 +1,1 @@
+/Users/javad/dev/chipstack-unittest-checker/old_outdirs/outdir.back2/tri_mode_ethernet_mac_10_100_1000_master/dut/wifii_mac_package.sv

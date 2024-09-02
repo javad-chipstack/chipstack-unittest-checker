@@ -1,0 +1,1 @@
+/Users/javad/dev/chipstack-unittest-checker/old_outdirs/outdir.back/comparator/dut/comparator.sv

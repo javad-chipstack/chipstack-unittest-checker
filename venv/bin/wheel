@@ -1,4 +1,4 @@
-#!/Users/javad/dev/chipstack-regress/venv/bin/python3.11
+#!/Users/javad/dev/chipstack-unittest-checker/venv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
