@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/ref_designs/sram_ctrl/sram_ctrl_regs_reg_top.sv

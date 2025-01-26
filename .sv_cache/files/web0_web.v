@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/ref_designs/meta/smp/xrbase_alfred/web0_web/web0_web.v

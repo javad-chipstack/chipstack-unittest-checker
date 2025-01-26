@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/ref_designs/pcie_controller_master/pcie_sipo.sv

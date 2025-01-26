@@ -1,8 +1,0 @@
-{
-    "[systemverilog]": {
-        "editor.defaultFormatter": "ChipStackInc.chipstack"
-    },
-    "[verilog]": {
-        "editor.defaultFormatter": "ChipStackInc.chipstack"
-    }
-}

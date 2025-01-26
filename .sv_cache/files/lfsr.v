@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/old_outdirs/outdir_new_2/rr_arbiter/run_dir/rtl/lfsr.v

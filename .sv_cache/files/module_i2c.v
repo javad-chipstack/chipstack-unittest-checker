@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/old_outdirs/outdir_new_2/apbi2c/dut/module_i2c.v

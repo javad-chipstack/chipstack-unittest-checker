@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/ref_designs/alu/build-cs-2024-07-23-173320443/alu_barrel_shifter.v

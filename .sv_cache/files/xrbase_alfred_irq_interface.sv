@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/ref_designs/meta/smp/xrbase_alfred/xrbase_alfred_irq_interface.sv

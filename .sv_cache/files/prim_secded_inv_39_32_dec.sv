@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/old_outdirs/outdir.back2/gpio/run_dir/rtl/prim_secded_inv_39_32_dec.sv

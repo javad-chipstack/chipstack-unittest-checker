@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/old_outdirs/outdir.back2/ahb3lite_apb_bridge/dut/ahb3lite_apb_bridge.sv

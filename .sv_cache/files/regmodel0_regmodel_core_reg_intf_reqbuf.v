@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/ref_designs/meta/smp/xrbase_alfred/regmodel0_regmodel/regmodel0_regmodel_core_reg_intf_reqbuf/regmodel0_regmodel_core_reg_intf_reqbuf.v

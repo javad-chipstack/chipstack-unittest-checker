@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/ref_designs/meta/smp/ral/fast_uvm_reg_pkg.sv

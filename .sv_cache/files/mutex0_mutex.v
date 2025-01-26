@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/ref_designs/meta/smp/xrbase_alfred/mutex0_mutex/mutex0_mutex.v

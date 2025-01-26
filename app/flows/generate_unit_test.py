@@ -182,12 +182,12 @@ class GenerateUnitTest(BaseModel):
                 # for file in sva_files:
                 #     file.close()
             else:
-                dut_files = []
+                dut_files_paths = []
                 for file_path in self.design_info.dependencies_path:
-                    dut_files.append(open(file_path, encoding="utf-8"))
-                dut_files.append(open(self.design_info.top_path, encoding="utf-8"))
+                    dut_files_paths.append(file_path)
+                dut_files_paths.append(self.design_info.top_path)
                 compile_check_res = self.client_v2.simulation_syntax_check(
-                    sva_files=dut_files
+                    sva_file_paths=dut_files_paths
                 )
 
         except Exception as err:
@@ -232,10 +232,14 @@ class GenerateUnitTest(BaseModel):
         return []
 
     def parse_design(self) -> List[str]:
-        self.parsed_design = self.client_v2.parse_design(
-            top_file_path=self.design_info.top_path,
-            dependency_file_paths=self.design_info.dependencies_path,
-        )
+        try:
+            self.parsed_design = self.client_v2.parse_design(
+                top_file_path=self.design_info.top_path,
+                dependency_file_paths=self.design_info.dependencies_path,
+            )
+        except Exception as e:
+            print(f"Error parsing design: {e}", flush=True)
+            return []
         return []
 
     def generate_mental_model(self) -> List[str]:
@@ -248,7 +252,9 @@ class GenerateUnitTest(BaseModel):
 
     def generate_unit_test_scenarios(self) -> List[str]:
         self.scenarios = self.client_v2.generate_unit_test_scenarios(
-            self.mental_model, unit_test_flow=self.config.unit_test_flow
+            parsed_design=self.parsed_design,
+            mental_model=self.mental_model,
+            unit_test_flow=self.config.unit_test_flow,
         )
         return []
 
@@ -359,13 +365,6 @@ class GenerateUnitTest(BaseModel):
             syntax_check_result = {}
             if self.unit_test_flow == "Simulation":
                 try:
-                    design_files = []
-                    for file in self.dependency_files + [self.top_file]:
-                        if file is None:
-                            continue
-                        file.seek(0)
-                        design_files.append(file)
-
                     temp_file_names, file_list = _create_temp_files(
                         file_contents=[module_codeblock_raw],
                         file_key="files",
@@ -375,7 +374,9 @@ class GenerateUnitTest(BaseModel):
                     #     files=design_files + file_list,
                     # )
                     syntax_check_result = self.client_v2.simulation_syntax_check(
-                        design_files + file_list
+                        self.design_info.dependencies_path
+                        + [self.design_info.top_path]
+                        + temp_file_names
                     )
                     _cleanup_temp_files(
                         file_list,
@@ -403,8 +404,9 @@ class GenerateUnitTest(BaseModel):
                         dut_module_name,
                         clocks=clock_ports,
                         resets=reset_ports,
-                        dut_files=[],
-                        sva_files=file_list,
+                        dut_file_paths=[self.design_info.top_path]
+                        + self.design_info.dependencies_path,
+                        sva_file_paths=temp_file_names,
                     )
                 except Exception as e:
                     print(f"Error in syntax check: {e}", flush=True)
@@ -457,131 +459,159 @@ class GenerateUnitTest(BaseModel):
 
             return errors_local, errors, warnings
 
-        safety_checks()
-        for cur_attempt in range(self.config.nr_of_syntax_fix_attempts):
-            if cur_attempt == 0:
-                init_correction_history()
-            else:
-                nr_of_modules_with_issues = update_correction_history()
-                if nr_of_modules_with_issues == 0:
-                    # No modules had issues in the previous attempt, so we can break
-                    break
+        try:
+            try:
+                safety_checks()
+                for cur_attempt in range(self.config.nr_of_syntax_fix_attempts):
+                    if cur_attempt == 0:
+                        init_correction_history()
+                    else:
+                        nr_of_modules_with_issues = update_correction_history()
+                        if nr_of_modules_with_issues == 0:
+                            # No modules had issues in the previous attempt, so we can break
+                            break
 
-            codeblocks_that_need_syntax_check = []
-            codeblocks_that_need_syntax_check_indexes = []
+                    codeblocks_that_need_syntax_check = []
+                    codeblocks_that_need_syntax_check_indexes = []
 
-            for cb_id, module in enumerate(self.syntax_correction.codeblocks):
-                if skip_syntax_check(cur_attempt, module):
-                    continue
+                    for cb_id, module in enumerate(self.syntax_correction.codeblocks):
+                        if skip_syntax_check(cur_attempt, module):
+                            continue
 
-                module_codeblock_raw = module.correction_history[-1].input_code
-                syntax_check_result = perform_syntax_check_for_syntax_correction(
-                    module_codeblock_raw
-                )
+                        module_codeblock_raw = module.correction_history[-1].input_code
+                        syntax_check_result = (
+                            perform_syntax_check_for_syntax_correction(
+                                module_codeblock_raw
+                            )
+                        )
 
-                errors_local, errors, warnings = (
-                    read_errors_and_warnings_from_syntax_check_results(
-                        syntax_check_result
+                        errors_local, errors, warnings = (
+                            read_errors_and_warnings_from_syntax_check_results(
+                                syntax_check_result
+                            )
+                        )
+
+                        # ignore warning in the syntax check flow
+                        warnings = []
+
+                        module.correction_history[-1].syntax_issues_checked = True
+                        module.correction_history[-1].syntax_issues = SyntaxIssues(
+                            errors, warnings
+                        )
+                        if len(errors) + len(warnings) != 0:
+
+                            correction_context = {
+                                "code": module_codeblock_raw,
+                                "syntax_issues": {
+                                    "errors": errors,
+                                    "warnings": warnings,
+                                },
+                                "other_issues": [],
+                            }
+                            codeblocks_that_need_syntax_check.append(correction_context)
+                            codeblocks_that_need_syntax_check_indexes.append(cb_id)
+                        else:
+                            module.correction_history[-1].output_code = (
+                                module_codeblock_raw
+                            )
+                            module.final_code = module_codeblock_raw
+                    corrected_codes = self.client_v2.fix_syntax_of_unit_tests(
+                        mental_model=self.mental_model,
+                        dut_parsed_model=self.parsed_design,
+                        correction_contexts=codeblocks_that_need_syntax_check,
+                        unit_test_flow=self.config.unit_test_flow,
                     )
-                )
+                    for idx, codeblock_idx in enumerate(
+                        codeblocks_that_need_syntax_check_indexes
+                    ):
+                        output_code_key = "output_code"
+                        if self.config.unit_test_flow == "Formal":
+                            output_code_key = "code"
+                        self.syntax_correction.codeblocks[
+                            codeblock_idx
+                        ].correction_history[-1].output_code = corrected_codes[idx][
+                            output_code_key
+                        ]
+                        self.syntax_correction.codeblocks[codeblock_idx].final_code = (
+                            corrected_codes[idx][output_code_key]
+                        )
 
-                # ignore warning in the syntax check flow
-                warnings = []
+                    # for idx, cb in enumerate(self.syntax_correction.codeblocks):
+                    #     if len(cb.correction_history) > cur_attempt:
+                    #         a = cb.correction_history[cur_attempt].syntax_issues_checked
+                    #         b = cb.correction_history[cur_attempt].has_syntax_issue()
+                    #         if a and b:
+                    #             print(f"{idx} {a} {b}")
+                    #         else:
+                    #             print(f"{idx} {a} {b} ******")
+                    #     else:
+                    #         print(f"{idx} Did not try. Fixed before.")
 
-                module.correction_history[-1].syntax_issues_checked = True
-                module.correction_history[-1].syntax_issues = SyntaxIssues(
-                    errors, warnings
-                )
-                if len(errors) + len(warnings) != 0:
+                    str_msg = f"[INFO {get_current_time()}] Syntax correction attempt {cur_attempt + 1} for design '{self.design_name}' completed."
+                    print(str_msg, flush=True)
+            except Exception as err:
+                print(f"Error in syntax correction: {err}", flush=True)
 
-                    correction_context = {
-                        "code": module_codeblock_raw,
-                        "syntax_issues": {"errors": errors, "warnings": warnings},
-                        "other_issues": [],
-                    }
-                    codeblocks_that_need_syntax_check.append(correction_context)
-                    codeblocks_that_need_syntax_check_indexes.append(cb_id)
+            try:
+                if self.config.unit_test_flow == "Simulation":
+                    try:
+                        self.codeblocks_to_compose["tasks"] = []
+                        self.codeblocks_to_compose["modules"] = []
+
+                        for idx, cb in enumerate(
+                            self.syntax_correction.codeblocks[
+                                : len(self.decomposed_unit_tests["tasks"])
+                            ]
+                        ):
+                            if not cb.correction_history[-1].has_syntax_issue():
+                                self.codeblocks_to_compose["tasks"].append(
+                                    cb.final_code
+                                )
+
+                        for idx, cb in enumerate(
+                            self.syntax_correction.codeblocks[
+                                len(self.decomposed_unit_tests["tasks"]) :
+                            ]
+                        ):
+                            if not cb.correction_history[-1].has_syntax_issue():
+                                self.codeblocks_to_compose["modules"].append(
+                                    cb.final_code
+                                )
+                        try:
+                            unit_test_tb = self.client_v2.compose_simulation_unit_tests(
+                                tasks=self.codeblocks_to_compose["tasks"],
+                                modules=self.codeblocks_to_compose["modules"],
+                                dut_parsed_model=self.parsed_design,
+                            )
+                        except Exception as err:
+                            print(f"Error in syntax correction: {err}", flush=True)
+
+                    except Exception as err:
+                        print(f"Error in syntax correction: {err}", flush=True)
                 else:
-                    module.correction_history[-1].output_code = module_codeblock_raw
-                    module.final_code = module_codeblock_raw
-            corrected_codes = self.client_v2.fix_syntax_of_unit_tests(
-                mental_model=self.mental_model,
-                dut_parsed_model=self.parsed_design,
-                correction_contexts=codeblocks_that_need_syntax_check,
-                unit_test_flow=self.config.unit_test_flow,
-            )
-            for idx, codeblock_idx in enumerate(
-                codeblocks_that_need_syntax_check_indexes
-            ):
-                output_code_key = "output_code"
-                if self.config.unit_test_flow == "Formal":
-                    output_code_key = "code"
-                self.syntax_correction.codeblocks[codeblock_idx].correction_history[
-                    -1
-                ].output_code = corrected_codes[idx][output_code_key]
-                self.syntax_correction.codeblocks[codeblock_idx].final_code = (
-                    corrected_codes[idx][output_code_key]
-                )
+                    self.codeblocks_to_compose["modules"] = []
 
-            # for idx, cb in enumerate(self.syntax_correction.codeblocks):
-            #     if len(cb.correction_history) > cur_attempt:
-            #         a = cb.correction_history[cur_attempt].syntax_issues_checked
-            #         b = cb.correction_history[cur_attempt].has_syntax_issue()
-            #         if a and b:
-            #             print(f"{idx} {a} {b}")
-            #         else:
-            #             print(f"{idx} {a} {b} ******")
-            #     else:
-            #         print(f"{idx} Did not try. Fixed before.")
+                    for idx, cb in enumerate(self.syntax_correction.codeblocks):
+                        if not cb.correction_history[-1].has_syntax_issue():
+                            self.codeblocks_to_compose["modules"].append(cb.final_code)
 
-            str_msg = f"[INFO {get_current_time()}] Syntax correction attempt {cur_attempt + 1} for design '{self.design_name}' completed."
-            print(str_msg, flush=True)
+                    unit_test_tb = self.client_v2.compose_formal_unit_tests(
+                        codeblocks=self.codeblocks_to_compose["modules"],
+                        dut_parsed_model=self.parsed_design,
+                    )
 
-        if self.config.unit_test_flow == "Simulation":
-            self.codeblocks_to_compose["tasks"] = []
-            self.codeblocks_to_compose["modules"] = []
+                if "code" not in unit_test_tb:
+                    print("Error composing unit tests", flush=True)
+                    return errors_local
 
-            for idx, cb in enumerate(
-                self.syntax_correction.codeblocks[
-                    : len(self.decomposed_unit_tests["tasks"])
-                ]
-            ):
-                if not cb.correction_history[-1].has_syntax_issue():
-                    self.codeblocks_to_compose["tasks"].append(cb.final_code)
+                self.testbench_code_after_syntax_fix = unit_test_tb["code"]
+            except Exception as err:
+                print(f"Error in syntax correction: {err}", flush=True)
 
-            for idx, cb in enumerate(
-                self.syntax_correction.codeblocks[
-                    len(self.decomposed_unit_tests["tasks"]) :
-                ]
-            ):
-                if not cb.correction_history[-1].has_syntax_issue():
-                    self.codeblocks_to_compose["modules"].append(cb.final_code)
-
-            unit_test_tb = self.client_v2.compose_simulation_unit_tests(
-                tasks=self.codeblocks_to_compose["tasks"],
-                modules=self.codeblocks_to_compose["modules"],
-                primitives=self.decomposed_unit_tests["primitives"],
-                dut_parsed_model=self.parsed_design,
-            )
-        else:
-            self.codeblocks_to_compose["modules"] = []
-
-            for idx, cb in enumerate(self.syntax_correction.codeblocks):
-                if not cb.correction_history[-1].has_syntax_issue():
-                    self.codeblocks_to_compose["modules"].append(cb.final_code)
-
-            unit_test_tb = self.client_v2.compose_formal_unit_tests(
-                codeblocks=self.codeblocks_to_compose["modules"],
-                dut_parsed_model=self.parsed_design,
-            )
-
-        if "code" not in unit_test_tb:
-            print("Error composing unit tests", flush=True)
             return errors_local
-
-        self.testbench_code_after_syntax_fix = unit_test_tb["code"]
-
-        return errors_local
+        except Exception as err:
+            print(f"Error in syntax correction: {err}", flush=True)
+            return errors_local
 
     def add_links_to_syntax_report(self):
         # open outdir/tt_ex/syntax_correction.json.html file and replace all the instances of module\s_+test_\w+ with a link to the corresponding module
@@ -863,17 +893,11 @@ class GenerateUnitTest(BaseModel):
         try:
             if self.config.unit_test_flow == "Formal":
                 jasper_config = self._get_jasper_config()
-                dut_files = [open(self.design_info.top_path, encoding="utf-8")]
                 tb_after_syntax_fix_path = os.path.join(
                     self.design_info.outdir,
                     "tb_after_syntax_fix.sv",
                 )
-                sva_files: List[TextIO] = [
-                    open(
-                        tb_after_syntax_fix_path,
-                        encoding="utf-8",
-                    )
-                ]
+
                 if (
                     jasper_config["clocks"]
                     and jasper_config["resets"]
@@ -883,47 +907,27 @@ class GenerateUnitTest(BaseModel):
                         jasper_config["top_module"],
                         jasper_config["clocks"],
                         jasper_config["resets"],
-                        dut_files=dut_files,
-                        sva_files=sva_files,
+                        dut_file_paths=[self.design_info.top_path]
+                        + self.design_info.dependencies_path,
+                        sva_file_paths=[tb_after_syntax_fix_path],
                     )
                 else:
                     invoke_eda_res = {
                         "error": "Error: Missing jasper configuration",
                         "log": {"errors": [], "warnings": []},
                     }
-
-                for file in dut_files:
-                    file.close()
-                for file in sva_files:
-                    file.close()
             else:
-
-                for file_path in self.design_info.dependencies_path:
-                    dut_files.append(open(file_path, encoding="utf-8"))
-
-                dut_files.append(open(self.design_info.top_path, encoding="utf-8"))
-
-                testbench_files: List[TextIO] = [
-                    open(
+                invoke_eda_res = self.client_v2.run_simulation_tests(
+                    dut_file_paths=self.design_info.dependencies_path
+                    + [self.design_info.top_path],
+                    testbench_file_paths=[
                         os.path.join(
                             self.design_info.outdir,
                             "tb_after_syntax_fix.sv",
-                        ),
-                        encoding="utf-8",
-                    )
-                ]
-                for file in dut_files:
-                    file.seek(0)
-                for file in testbench_files:
-                    file.seek(0)
-                invoke_eda_res = self.client_v2.run_simulation_tests(
-                    dut_files=dut_files,
-                    testbench_files=testbench_files,
+                        )
+                    ],
                 )
-                for file in dut_files:
-                    file.close()
-                for file in testbench_files:
-                    file.close()
+
         except Exception as err:
             local_errors.append(f"Failed to invoke run-tests: {err}")
             print(
@@ -1238,8 +1242,8 @@ class GenerateUnitTest(BaseModel):
                         {
                             "title": "Scenario system prompt",
                             "text": self.scenarios[cb_idx]
-                            .get("metadata", "")
-                            .get("logs", "")
+                            .get("metadata", {})
+                            .get("logs", {})
                             .get("system_prompt", ""),
                         },
                     ),
@@ -1248,8 +1252,8 @@ class GenerateUnitTest(BaseModel):
                         {
                             "title": "Scenario user prompt",
                             "text": self.scenarios[cb_idx]
-                            .get("metadata", "")
-                            .get("logs", "")
+                            .get("metadata", {})
+                            .get("logs", {})
                             .get("user_prompt", ""),
                         },
                     ),
@@ -1262,66 +1266,67 @@ class GenerateUnitTest(BaseModel):
                     ),
                 ]
 
-                for code_gen_step in range(
-                    len(self.testbench_code_gen_prompt_response[cb_idx])
-                ):
-                    if (
-                        "system_prompt"
-                        in self.testbench_code_gen_prompt_response[cb_idx][
-                            code_gen_step
-                        ]
+                if len(self.testbench_code_gen_prompt_response) > cb_idx:
+                    for code_gen_step in range(
+                        len(self.testbench_code_gen_prompt_response[cb_idx])
                     ):
-                        system_prompt = self.testbench_code_gen_prompt_response[cb_idx][
-                            code_gen_step
-                        ].get("system_prompt", "")
-                        logs.append(
-                            (
-                                "title-text",
-                                {
-                                    "title": f"Code generation #{code_gen_step} system_prompt",
-                                    "text": system_prompt,
-                                },
+                        if (
+                            "system_prompt"
+                            in self.testbench_code_gen_prompt_response[cb_idx][
+                                code_gen_step
+                            ]
+                        ):
+                            system_prompt = self.testbench_code_gen_prompt_response[
+                                cb_idx
+                            ][code_gen_step].get("system_prompt", "")
+                            logs.append(
+                                (
+                                    "title-text",
+                                    {
+                                        "title": f"Code generation #{code_gen_step} system_prompt",
+                                        "text": system_prompt,
+                                    },
+                                )
                             )
-                        )
-                        user_prompt = self.testbench_code_gen_prompt_response[cb_idx][
-                            code_gen_step
-                        ].get("user_prompt", "")
-                        logs.append(
-                            (
-                                "title-text",
-                                {
-                                    "title": f"Code generation #{code_gen_step} user_prompt",
-                                    "text": user_prompt,
-                                },
+                            user_prompt = self.testbench_code_gen_prompt_response[
+                                cb_idx
+                            ][code_gen_step].get("user_prompt", "")
+                            logs.append(
+                                (
+                                    "title-text",
+                                    {
+                                        "title": f"Code generation #{code_gen_step} user_prompt",
+                                        "text": user_prompt,
+                                    },
+                                )
                             )
-                        )
 
-                    else:
-                        prompt = self.testbench_code_gen_prompt_response[cb_idx][
+                        else:
+                            prompt = self.testbench_code_gen_prompt_response[cb_idx][
+                                code_gen_step
+                            ].get("prompt", "")
+                            logs.append(
+                                (
+                                    "title-text",
+                                    {
+                                        "title": f"Code generation #{code_gen_step} prompt",
+                                        "text": prompt,
+                                    },
+                                )
+                            )
+
+                        response = self.testbench_code_gen_prompt_response[cb_idx][
                             code_gen_step
-                        ].get("prompt", "")
+                        ].get("response", "")
                         logs.append(
                             (
                                 "title-text",
                                 {
-                                    "title": f"Code generation #{code_gen_step} prompt",
-                                    "text": prompt,
+                                    "title": f"Code generation #{code_gen_step} response",
+                                    "text": response,
                                 },
                             )
                         )
-
-                    response = self.testbench_code_gen_prompt_response[cb_idx][
-                        code_gen_step
-                    ].get("response", "")
-                    logs.append(
-                        (
-                            "title-text",
-                            {
-                                "title": f"Code generation #{code_gen_step} response",
-                                "text": response,
-                            },
-                        )
-                    )
 
                 for attempt, correction_history in enumerate(cb.correction_history):
                     logs.append(("sv", correction_history.input_code))

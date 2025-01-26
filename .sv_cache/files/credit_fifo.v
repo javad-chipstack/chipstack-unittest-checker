@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/old_outdirs/outdir.back/credit_fifo/run_dir/rtl/credit_fifo.v

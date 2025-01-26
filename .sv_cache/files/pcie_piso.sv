@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/old_outdirs/outdir.back/pcie_controller_master/run_dir/rtl/pcie_piso.sv

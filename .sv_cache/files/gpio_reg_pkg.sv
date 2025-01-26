@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/old_outdirs/outdir.back2/gpio/run_dir/rtl/gpio_reg_pkg.sv

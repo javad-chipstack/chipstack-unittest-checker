@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/ref_designs/other/fifo/fifo_design2/fifo.sv

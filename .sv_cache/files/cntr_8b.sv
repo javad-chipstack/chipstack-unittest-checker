@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/ref_designs/other/cntr_8b/cntr8b_design1/cntr_8b.sv

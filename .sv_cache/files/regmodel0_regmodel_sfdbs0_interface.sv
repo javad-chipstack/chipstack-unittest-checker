@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/old_outdirs/outdir.back/meta_fdb0_fdb/dut/regmodel0_regmodel_sfdbs0_interface.sv

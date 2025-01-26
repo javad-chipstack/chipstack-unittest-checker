@@ -1,1 +1,0 @@
-/Users/javad/dev/chipstack-unittest-checker/old_outdirs/outdir.back2/generic_fifo_sc_b/dut/generic_fifo_sc_b.v
